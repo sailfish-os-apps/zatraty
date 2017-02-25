@@ -1,11 +1,7 @@
-![Project unmaintained][unmaintained-image]
-
-[unmaintained-image]: https://img.shields.io/badge/project-unmaintained-red.svg
-
 Expense
 =======
 
-This is an expense manager for SailfishOS, written in QML/Javascript.
+This is an expense manager for SailfishOS.
 
 
 Screenshots
