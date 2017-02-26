@@ -1,18 +1,9 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/dbmanager.js" as DBmanager
-
+import harbour.zatraty 1.0
 
 Page {
     id: categoriesPage
-
-    property alias categories: listView.model
-    property string newCategory
-
-    Component.onCompleted: {
-        categories = DBmanager.getAllCategories()
-    }
 
     SilicaListView {
         id: listView
@@ -21,16 +12,18 @@ Page {
             MenuItem {
                 text: qsTr("Add Category")
                 onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/NewCategoryDialog.qml"), {"name": newCategory})
+                    var dialog = pageStack.push(Qt.resolvedUrl("../components/NewCategoryDialog.qml"))
                     dialog.accepted.connect(function() {
-                        DBmanager.insertCategory(dialog.name)
-                        categories = DBmanager.getAllCategories()
+                        categoryModel.add(dialog.name)
                     })
                 }
             }
         }
 
-        model: categories
+        model: CategoryListModel {
+            id: categoryModel
+        }
+
         anchors.fill: parent
 
         header: PageHeader {
@@ -42,13 +35,14 @@ Page {
 
             Label {
                 x: Theme.paddingLarge
-                text: categories[index]
+                text: name
                 anchors.verticalCenter: parent.verticalCenter
                 color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
             }
 
             onClicked: {
-                pageStack.push(Qt.resolvedUrl("CategoryPage.qml"),{"categoryName":categories[index]})
+                var category = categoryModel.get(index)
+                pageStack.push(Qt.resolvedUrl("CategoryPage.qml"), { "category": category })
             }
         }
         VerticalScrollDecorator {}

@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/preferences.js" as Preferences
+import harbour.zatraty 1.0
 
 Page {
     id: contactsPage
@@ -21,7 +20,7 @@ Page {
             }
 
             Label {
-                text: qsTr("Expense")
+                text: Settings.appName
                 color: Theme.highlightColor
                 font.pixelSize: Theme.fontSizeExtraLarge*1.5
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -29,13 +28,13 @@ Page {
 
             Image {
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: "/usr/share/icons/hicolor/86x86/apps/harbour-expense.png"
+                source: "/usr/share/icons/hicolor/86x86/apps/harbour-zatraty.png"
                 width: parent.width *0.2
                 height: width
             }
 
             Label {
-                text: qsTr("Version %1").arg(1.6)
+                text: qsTr("Version %1").arg(Settings.appVersion)
                 font.pixelSize: Theme.fontSizeTiny
                 color: Theme.secondaryHighlightColor
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -52,7 +51,7 @@ Page {
 
             Label {
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "<a href=\"https://github.com/ziggy42/Expense/\">Github</a>";
+                text: "<a href=\"https://github.com/ckazzku/zatraty/\">Github</a>";
                 onLinkActivated: Qt.openUrlExternally(link)
             }
         }

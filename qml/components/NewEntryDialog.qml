@@ -1,45 +1,41 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/dbmanager.js" as DBmanager
-import "../JS/preferences.js" as Preferences
+import harbour.zatraty 1.0
 
 Dialog {
+    id: dialog
+    canAccept: false
     property string category
     property real amount
     property string desc
-    property string date
-
-    property alias categories: silicaListView.model
 
     Component.onCompleted: {
         appWindow.quickAddOpen = true
-        categories = DBmanager.getAllCategories()
-        if(category !== "") categoryLabel.text = category
+        if (category !== "") {
+            categoryLabel.text = category
+            categoryChooseButton.enabled = false
+        }
         amountField.focus = true
     }
 
-    Label {
-        id: newEntryLabel
-        text: qsTr("New Entry")
-        anchors {
-            top: parent.top
-            topMargin: Theme.paddingLarge
-            horizontalCenter: parent.horizontalCenter
-        }
-        color: Theme.secondaryHighlightColor
-        font.pixelSize: Theme.fontSizeExtraLarge
+    DialogHeader {
+        id: header
+        title: qsTr("New Entry")
+        acceptText: qsTr("Add")
     }
 
     TextField {
         id: amountField
         width: parent.width
         anchors {
-            top: newEntryLabel.bottom
+            top: header.bottom
             topMargin: Theme.paddingLarge
         }
         placeholderText: qsTr("Amount", "placeholder for amount")
         inputMethodHints: Qt.ImhFormattedNumbersOnly
+        onTextChanged: {
+            dialog.canAccept = (text !== "")
+        }
     }
 
     TextField {
@@ -62,6 +58,7 @@ Dialog {
         spacing: Theme.paddingLarge
 
         Button {
+            id: categoryChooseButton
             text: qsTr("Choose Category")
             anchors.verticalCenter: parent.verticalCenter
             onClicked: categoriesDrawer.open = !categoriesDrawer.open
@@ -69,7 +66,7 @@ Dialog {
 
         Label {
             id: categoryLabel
-            text: categories[silicaListView.currentIndex]
+            text: CategoryModel.mostUsed().name
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeLarge
             anchors.verticalCenter: parent.verticalCenter
@@ -87,31 +84,36 @@ Dialog {
         }
 
         background: SilicaListView {
-            id: silicaListView
+            id: categoryListView
             anchors.fill: parent
+            model: CategoryListModel {
+                id: categoryListModel
+            }
 
             delegate: BackgroundItem {
                 id: delegate
 
                 Label {
                     x: Theme.paddingLarge
-                    text: categories[index]
+                    text: name
                     anchors.verticalCenter: parent.verticalCenter
                     color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
                 }
                 onClicked: {
-                    categoryLabel.text = categories[index]
+                    categoryLabel.text = name
                     categoriesDrawer.open = false
                 }
             }
         }
     }
 
+    onAccepted: {
+        category = categoryLabel.text
+        amount = parseFloat(amountField.text)
+        desc = descField.text
+    }
+
     onDone: {
-        if (result === DialogResult.Accepted) {
-            var currentDate = Qt.formatDateTime(new Date(), "ddMMyyyy");
-            DBmanager.insertCharge(categoryLabel.text,amountField.text,descField.text,currentDate)
-        }
         appWindow.quickAddOpen = false
     }
 }

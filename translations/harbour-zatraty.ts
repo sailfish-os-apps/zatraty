@@ -2,14 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>AddCurrencyDialog</name>
+    <name>CategoriesPage</name>
     <message>
-        <source>New Currency</source>
+        <source>Add Category</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Currency</source>
-        <comment>placeholder for currency</comment>
+        <source>Categories</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -38,11 +37,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>amount: %1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation type="unfinished"></translation>
@@ -59,15 +53,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Expense</source>
+        <source>A simple app to manage your money. This software is open source:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>A simple app to manage your money. This software is open source:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -80,6 +70,33 @@
     <message>
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DataBase</name>
+    <message>
+        <source>Required sqlite driver not available!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot open data base: %1!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot find local storage dir %1!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no data base with name %1!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -98,6 +115,10 @@
         <source>All your data related with this category (%1) will be lost!!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeleteEntryDialog</name>
@@ -108,6 +129,10 @@
     <message>
         <source>amount: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -148,9 +173,34 @@
         <comment>subtitle of the amount spent in the MainView</comment>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>ImportDataDialog</name>
     <message>
-        <source>Expense</source>
-        <comment>This is the App Title</comment>
+        <source>Import Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will be imported data from the old Expense app</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data from old Expense app already imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImportDataPage</name>
+    <message>
+        <source>Done.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import data</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -159,10 +209,6 @@
     <message>
         <source>%1 %2 in %3</source>
         <comment>1 is amount, 2 is currency and 3 is the category</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Today</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -189,11 +235,35 @@
         <comment>placeholder for category name</comment>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCurrencyDialog</name>
+    <message>
+        <source>New Currancy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currency</source>
+        <comment>placeholder for currency</comment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewEntryDialog</name>
     <message>
         <source>New Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -226,15 +296,19 @@
         <source>All your data will be irreversibly lost!!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
-    <name>SecondPage</name>
+    <name>Settings</name>
     <message>
-        <source>Add Category</source>
+        <source>Incorrect index of currency</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Categories</source>
+        <source>Currency &apos;%s&apos; already exists</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -258,6 +332,10 @@
     </message>
     <message>
         <source>Add New Currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Data</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

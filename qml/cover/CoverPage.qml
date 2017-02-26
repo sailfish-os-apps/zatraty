@@ -1,14 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/dbmanager.js" as DBmanager
-import "../JS/preferences.js" as Preferences
+import harbour.zatraty 1.0
 
 CoverBackground {
-
-    onStatusChanged: label.text = qsTr("%1 %2", "1 is amount and 2 is currency")
-                                        .arg(parseInt(DBmanager.getTotalChargeThisMonth(0)))
-                                        .arg(Preferences.getCurrency())
 
     Column {
            anchors.centerIn: parent
@@ -17,7 +11,7 @@ CoverBackground {
 
            Image {
                anchors.horizontalCenter: parent.horizontalCenter
-               source: "/usr/share/icons/hicolor/86x86/apps/harbour-expense.png"
+               source: "/usr/share/icons/hicolor/86x86/apps/harbour-zatraty.png"
            }
 
            Label {
@@ -33,8 +27,8 @@ CoverBackground {
                color: Theme.highlightColor
                font.pixelSize: Theme.fontSizeLarge
                text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                        .arg(parseInt(DBmanager.getTotalChargeThisMonth(0)))
-                        .arg(Preferences.getCurrency())
+                        .arg(ExpenseModel.totalMonthAmount())
+                        .arg(Settings.currency)
            }
     }
 
@@ -46,6 +40,9 @@ CoverBackground {
             onTriggered: {
                 if(!appWindow.quickAddOpen) {
                     var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"));
+                    dialog.accepted.connect(function() {
+                        ExpenseModel.add(dialog.category, dialog.amount, dialog.desc)
+                    })
                 }
                 appWindow.activate();
             }

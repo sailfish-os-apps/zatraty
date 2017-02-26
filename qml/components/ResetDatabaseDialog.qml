@@ -1,26 +1,19 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/dbmanager.js" as DBmanager
+import harbour.zatraty 1.0
 
 Dialog {
 
-    Label {
-        id: deleteCategoryLabel
-        text: qsTr("Reset Database")
-        anchors {
-            top: parent.top
-            topMargin: Theme.paddingLarge
-            horizontalCenter: parent.horizontalCenter
-        }
-        color: Theme.secondaryHighlightColor
-        font.pixelSize: Theme.fontSizeExtraLarge
+    DialogHeader {
+        id: header
+        title: qsTr("Reset Database")
+        acceptText: qsTr("Reset")
     }
 
     Label {
         id: warningLabel
         anchors {
-            top: deleteCategoryLabel.bottom
+            top: header.bottom
             topMargin: Theme.paddingLarge
             horizontalCenter: parent.horizontalCenter
         }
@@ -46,11 +39,8 @@ Dialog {
         text: qsTr("All your data will be irreversibly lost!!")
     }
 
-
-    onDone: {
-        if (result === DialogResult.Accepted) {
-            DBmanager.reset()
-            DBmanager.initializeDatabase()
-        }
+    onAccepted: {
+        DataBase.reset()
+        DataBase.init()
     }
 }

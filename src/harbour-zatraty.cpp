@@ -36,13 +36,40 @@
 #include <QGuiApplication>
 #include <QDebug>
 #include <QQuickView>
-
+#include <QDir>
+#include <QFile>
 #include <QTranslator>
 #include <QLocale>
+#include <QtQml>
+
+#include "database.h"
+#include "category.h"
+#include "expense.h"
+#include "settings.h"
+#include "models/categorylistmodel.h"
+#include "models/categorymodel.h"
+#include "models/datelistmodel.h"
+#include "models/expenselistmodel.h"
+#include "models/expensemodel.h"
+
+void qmlRegisterTypes()
+{
+    qmlRegisterSingletonType<DataBase>("harbour.zatraty", 1, 0, "DataBase", &DataBase::qinstance);
+    qmlRegisterSingletonType<Settings>("harbour.zatraty", 1, 0, "Settings", &Settings::qinstance);
+
+    qmlRegisterType<Category>("harbour.zatraty", 1, 0, "Category");
+    qmlRegisterType<Expense>("harbour.zatraty", 1, 0, "Expense");
+
+    qmlRegisterType<CategoryListModel>("harbour.zatraty", 1, 0, "CategoryListModel");
+    qmlRegisterType<ExpenseListModel>("harbour.zatraty", 1, 0, "ExpenseListModel");
+    qmlRegisterType<DateListModel>("harbour.zatraty", 1, 0, "DateListModel");
+}
 
 int main(int argc, char *argv[])
 {
     QGuiApplication *app = SailfishApp::application(argc, argv);
+    app->setApplicationName("zatraty");
+    app->setApplicationVersion("0.1");
 
     QString locale = QLocale::system().name();
     qDebug() << "detected locale is " << locale;
@@ -55,13 +82,17 @@ int main(int argc, char *argv[])
     * for that + ".qm"; if not found, it will look for a
     * qml-translations.qm file; if not found, no translation is done
     */
-    if (translator.load("harbour-expense." + locale, SailfishApp::pathTo("translations").path()))
+    if (translator.load("harbour-zatraty." + locale, SailfishApp::pathTo("translations").path()))
         app->installTranslator(&translator);
 
+    qmlRegisterTypes();
+
     QQuickView* viewer = SailfishApp::createView();
-    viewer->setSource(SailfishApp::pathTo("qml/harbour-expense.qml"));
+    viewer->rootContext()->setContextProperty("CategoryModel", &CategoryModel::instance());
+    viewer->rootContext()->setContextProperty("ExpenseModel", &ExpenseModel::instance());
+
+    viewer->setSource(SailfishApp::pathTo("qml/harbour-zatraty.qml"));
     viewer->show();
 
     return app->exec();
 }
-

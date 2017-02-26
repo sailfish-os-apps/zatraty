@@ -2,15 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="sv">
 <context>
-    <name>AddCurrencyDialog</name>
+    <name>CategoriesPage</name>
     <message>
-        <source>New Currency</source>
-        <translation>Ny valuta</translation>
+        <source>Add Category</source>
+        <translation type="unfinished">Lägg till kategori</translation>
     </message>
     <message>
-        <source>Currency</source>
-        <comment>placeholder for currency</comment>
-        <translation>Valuta</translation>
+        <source>Categories</source>
+        <translation type="unfinished">Kategorier</translation>
     </message>
 </context>
 <context>
@@ -38,11 +37,6 @@
         <translation>Denna månad:</translation>
     </message>
     <message>
-        <source>amount: %1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
-        <translation>summa: %1 %2</translation>
-    </message>
-    <message>
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>%1 %2</translation>
@@ -59,16 +53,12 @@
         <translation>Om</translation>
     </message>
     <message>
-        <source>Expense</source>
-        <translation>Expense</translation>
+        <source>A simple app to manage your money. This software is open source:</source>
+        <translation>En enkel app för att hantera dina pengar. Denna mjukvara är öppen källkod:</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Version %1</translation>
-    </message>
-    <message>
-        <source>A simple app to manage your money. This software is open source:</source>
-        <translation>En enkel app för att hantera dina pengar. Denna mjukvara är öppen källkod:</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -81,6 +71,33 @@
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>%1 %2</translation>
+    </message>
+</context>
+<context>
+    <name>DataBase</name>
+    <message>
+        <source>Required sqlite driver not available!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot open data base: %1!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot find local storage dir %1!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no data base with name %1!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -98,6 +115,10 @@
         <source>All your data related with this category (%1) will be lost!!</source>
         <translation>All data relaterad till denna kategori (%1) kommer att förloras!!</translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeleteEntryDialog</name>
@@ -109,6 +130,10 @@
         <source>amount: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>summa: %1 %2</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -148,10 +173,35 @@
         <comment>subtitle of the amount spent in the MainView</comment>
         <translation>Spenderat denna månad</translation>
     </message>
+</context>
+<context>
+    <name>ImportDataDialog</name>
     <message>
-        <source>Expense</source>
-        <comment>This is the App Title</comment>
-        <translation>Expense</translation>
+        <source>Import Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will be imported data from the old Expense app</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data from old Expense app already imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImportDataPage</name>
+    <message>
+        <source>Done.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import data</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -159,11 +209,7 @@
     <message>
         <source>%1 %2 in %3</source>
         <comment>1 is amount, 2 is currency and 3 is the category</comment>
-        <translation>%1 %2 på %3</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation>I dag</translation>
+        <translation type="unfinished">%1 %2 på %3</translation>
     </message>
 </context>
 <context>
@@ -189,26 +235,50 @@
         <comment>placeholder for category name</comment>
         <translation>Namn</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCurrencyDialog</name>
+    <message>
+        <source>New Currancy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currency</source>
+        <comment>placeholder for currency</comment>
+        <translation type="unfinished">Valuta</translation>
+    </message>
 </context>
 <context>
     <name>NewEntryDialog</name>
     <message>
         <source>New Entry</source>
-        <translation>Ny post</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Amount</source>
         <comment>placeholder for amount</comment>
-        <translation>Summa</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Desc</source>
         <comment>placeholder for description</comment>
-        <translation>Beskrivning</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Choose Category</source>
-        <translation>Välj kategori</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -226,16 +296,20 @@
         <source>All your data will be irreversibly lost!!</source>
         <translation>All data förloras och kan inte återfås!!</translation>
     </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
-    <name>SecondPage</name>
+    <name>Settings</name>
     <message>
-        <source>Add Category</source>
-        <translation>Lägg till kategori</translation>
+        <source>Incorrect index of currency</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Categories</source>
-        <translation>Kategorier</translation>
+        <source>Currency &apos;%s&apos; already exists</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -259,6 +333,10 @@
     <message>
         <source>Add New Currency</source>
         <translation>Lägg till ny valuta</translation>
+    </message>
+    <message>
+        <source>Import Data</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

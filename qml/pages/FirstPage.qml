@@ -1,33 +1,35 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/dbmanager.js" as DBmanager
-import "../JS/preferences.js" as Preferences
+import harbour.zatraty 1.0
 
 Page {
     id: page
 
-    property alias totalCount: moneyLabel.text
-    property alias totalCountLastMonth: lastMonthLabel.text
-    property alias total: totalLabel.text
-    property alias mostUsedCategory: mostUsedCategoryLabel.text
+    property real totalThisMonth
+    property real totalLastMonth
+    property real total
+    property string mostUsedCategory
 
-    Component.onCompleted: {
-        if(DBmanager.getNumberOftables() === 0)
-            DBmanager.initializeDatabase()
+    function refresh() {
+        total = ExpenseModel.totalAmount()
+        var date = new Date()
+        totalThisMonth = ExpenseModel.totalMonthAmount(date)
+        date.setMonth(date.getMonth() - 1)
+        totalLastMonth = ExpenseModel.totalMonthAmount(date)
+
+        var category = CategoryModel.mostUsed()
+        if (category)
+            mostUsedCategory = category.name
     }
 
     onStatusChanged: {
-        if(page.status === PageStatus.Activating) {
-            totalCount = parseInt(DBmanager.getTotalChargeThisMonth(0)) + " " + Preferences.getCurrency()
-            totalCountLastMonth = qsTr("Last Month: %1 %2", "1 is amount and 2 is currency")
-                                    .arg(parseInt(DBmanager.getTotalChargeThisMonth(-1)))
-                                    .arg(Preferences.getCurrency())
-            total = qsTr("Total: %1 %2", "1 is amount and 2 is currency")
-                                    .arg(parseInt(DBmanager.getFuckingTotal()))
-                                    .arg(Preferences.getCurrency())
-            mostUsedCategory = qsTr("Most used category: %1").arg(DBmanager.getMostUsedCategory())
-        }
+        if (page.status === PageStatus.Activating)
+            refresh()
+    }
+
+    Component.onCompleted: {
+        // By default false => TypeError: Cannot read property 'backIndicatorDown' of null
+        pageStack.backNavigation = true
     }
 
     SilicaFlickable {
@@ -41,18 +43,14 @@ Page {
 
             MenuItem {
                 text: qsTr("Categories")
-                onClicked: pageStack.push(Qt.resolvedUrl("SecondPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("CategoriesPage.qml"))
             }
             MenuItem {
                 text: qsTr("Quick Add")
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"))
                     dialog.accepted.connect(function() {
-                        totalCount = parseInt(DBmanager.getTotalChargeThisMonth(0)) + " " + Preferences.getCurrency()
-                        total = qsTr("Total: %1 %2", "1 is amount and 2 is currency")
-                                    .arg(parseInt(DBmanager.getFuckingTotal()))
-                                    .arg(Preferences.getCurrency())
-                        mostUsedCategory = qsTr("Most used category: %1").arg(DBmanager.getMostUsedCategory())
+                        ExpenseModel.add(dialog.category, dialog.amount, dialog.desc)
                     })
                 }
             }
@@ -73,14 +71,21 @@ Page {
             spacing: Theme.paddingSmall
 
             PageHeader {
-                title: qsTr("Expense", "This is the App Title")
+                title: Settings.appName
             }
 
             Label {
                 id: moneyLabel
-                anchors { horizontalCenter: parent.horizontalCenter }
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width
+                height: contentHeight
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
                 color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge*3
+                font.pixelSize: Theme.fontSizeExtraLarge * 3
+                fontSizeMode: Text.HorizontalFit
+                text: "%1 %2".arg(totalThisMonth)
+                             .arg(Settings.currency)
             }
 
             Label {
@@ -100,6 +105,9 @@ Page {
             }
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeMedium
+            text: qsTr("Last Month: %1 %2", "1 is amount and 2 is currency")
+                                            .arg(totalLastMonth)
+                                            .arg(Settings.currency)
         }
 
         Label {
@@ -111,6 +119,9 @@ Page {
             }
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeMedium
+            text: qsTr("Total: %1 %2", "1 is amount and 2 is currency")
+                                                .arg(total)
+                                                .arg(Settings.currency)
         }
 
         Label {
@@ -122,7 +133,7 @@ Page {
             }
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeMedium
+            text: qsTr("Most used category: %1").arg(mostUsedCategory)
         }
     }
 }
-

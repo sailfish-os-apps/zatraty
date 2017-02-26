@@ -2,15 +2,14 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="de_DE">
 <context>
-    <name>AddCurrencyDialog</name>
+    <name>CategoriesPage</name>
     <message>
-        <source>New Currency</source>
-        <translation type="unfinished"></translation>
+        <source>Add Category</source>
+        <translation type="unfinished">Kategorie hinzufügen</translation>
     </message>
     <message>
-        <source>Currency</source>
-        <comment>placeholder for currency</comment>
-        <translation type="unfinished"></translation>
+        <source>Categories</source>
+        <translation type="unfinished">Kategorien</translation>
     </message>
 </context>
 <context>
@@ -38,11 +37,6 @@
         <translation>Diesen Monat:</translation>
     </message>
     <message>
-        <source>amount: %1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
-        <translation>Betrag: %1 %2</translation>
-    </message>
-    <message>
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>%1 %2</translation>
@@ -59,16 +53,12 @@
         <translation>Über</translation>
     </message>
     <message>
-        <source>Expense</source>
-        <translation>Expense</translation>
+        <source>A simple app to manage your money. This software is open source:</source>
+        <translation>Eine einfache App zum Geld verwalten. Diese Software ist Open Source.</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation>Version %1</translation>
-    </message>
-    <message>
-        <source>A simple app to manage your money. This software is open source:</source>
-        <translation>Eine einfache App zum Geld verwalten. Diese Software ist Open Source.</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -81,6 +71,33 @@
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>%1 %2</translation>
+    </message>
+</context>
+<context>
+    <name>DataBase</name>
+    <message>
+        <source>Required sqlite driver not available!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Food</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Travels</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot open data base: %1!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cannot find local storage dir %1!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>There is no data base with name %1!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -98,6 +115,10 @@
         <source>All your data related with this category (%1) will be lost!!</source>
         <translation>Alle Daten in dieser Kategorie (%1) werden verloren gehen!!</translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeleteEntryDialog</name>
@@ -109,6 +130,10 @@
         <source>amount: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>Betrag: %1 %2</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -148,10 +173,35 @@
         <comment>subtitle of the amount spent in the MainView</comment>
         <translation>diesen Monat ausgegeben</translation>
     </message>
+</context>
+<context>
+    <name>ImportDataDialog</name>
     <message>
-        <source>Expense</source>
-        <comment>This is the App Title</comment>
-        <translation>Expense</translation>
+        <source>Import Data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Will be imported data from the old Expense app</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data from old Expense app already imported</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ImportDataPage</name>
+    <message>
+        <source>Done.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import data</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -159,11 +209,7 @@
     <message>
         <source>%1 %2 in %3</source>
         <comment>1 is amount, 2 is currency and 3 is the category</comment>
-        <translation>%1 %2 in %3</translation>
-    </message>
-    <message>
-        <source>Today</source>
-        <translation>Heute</translation>
+        <translation type="unfinished">%1 %2 in %3</translation>
     </message>
 </context>
 <context>
@@ -189,26 +235,50 @@
         <comment>placeholder for category name</comment>
         <translation>Name</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NewCurrencyDialog</name>
+    <message>
+        <source>New Currancy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Currency</source>
+        <comment>placeholder for currency</comment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>NewEntryDialog</name>
     <message>
         <source>New Entry</source>
-        <translation>Neuer Eintrag</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Amount</source>
         <comment>placeholder for amount</comment>
-        <translation>Betrag</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Desc</source>
         <comment>placeholder for description</comment>
-        <translation>Beschreibung</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Choose Category</source>
-        <translation>Wähle die Kategorie</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -226,16 +296,20 @@
         <source>All your data will be irreversibly lost!!</source>
         <translation>Alle Daten werden unwiederruflich verloren gehen!!</translation>
     </message>
+    <message>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
-    <name>SecondPage</name>
+    <name>Settings</name>
     <message>
-        <source>Add Category</source>
-        <translation>Kategorie hinzufügen</translation>
+        <source>Incorrect index of currency</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Categories</source>
-        <translation>Kategorien</translation>
+        <source>Currency &apos;%s&apos; already exists</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -258,6 +332,10 @@
     </message>
     <message>
         <source>Add New Currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import Data</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

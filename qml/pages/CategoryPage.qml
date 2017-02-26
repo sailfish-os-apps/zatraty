@@ -1,44 +1,25 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/dbmanager.js" as DBmanager
-import "../JS/preferences.js" as Preferences
-
+import harbour.zatraty 1.0
 
 Page {
     id: page
 
-    property string categoryName
-    property int percentage
-    property var expenses
-    property int totalThisMonth
+    property Category category
+    property real total
+    property real totalThisMonth
 
     function refresh() {
-        model.clear()
-        expenses = DBmanager.getSpentThisMonthInCategory(categoryName)
-        for(var i = 0; i < expenses.length; i++)
-            model.append({"amount" : expenses[i].amount, "desc" : expenses[i].desc, "date" : expenses[i].date})
-    }
-
-    function makeMeABeautifulDate(date) {
-        // note: constructor takes months values (0-11)!!
-        var d = new Date(parseInt(date.substring(4,8)),
-                         parseInt(date.substring(2,4)-1),
-                         parseInt(date.substring(0,2)))
-
-        return Qt.formatDate(d, Qt.DefaultLocaleShortDate)
-    }
-
-    Component.onCompleted: {
-        percentage = DBmanager.getPercentageForCategory(categoryName)
-        totalThisMonth = DBmanager.getTotalSpentThisMonthInCategory(categoryName)
+        percentIndicator.value = 0
         animationTimer.running = true
-        expenses = DBmanager.getSpentThisMonthInCategory(categoryName)
-        for(var i = 0; i < expenses.length; i++)
-            model.append({"amount" : expenses[i].amount, "desc" : expenses[i].desc, "date" : expenses[i].date})
+        total = ExpenseModel.totalAmount()
+        totalThisMonth = ExpenseModel.totalMonthAmount(new Date(), category)
     }
 
-    ListModel {id: model}
+    onStatusChanged: {
+        if (page.status === PageStatus.Activating)
+            refresh()
+    }
 
     Timer {
         id: animationTimer
@@ -46,7 +27,9 @@ Page {
         repeat: true
         running: false
         onTriggered: {
-            if(percentIndicator.value < percentage) percentIndicator.value++;
+            var portion = total / interval;
+            if (percentIndicator.value < totalThisMonth)
+                percentIndicator.value += portion;
             else stop()
         }
     }
@@ -58,23 +41,21 @@ Page {
             MenuItem {
                 text: qsTr("Delete Category")
                 onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteCategoryDialog.qml"),{"category":categoryName})
+                    var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteCategoryDialog.qml"),
+                                                { "category": category })
+                    dialog.accepted.connect(function() {
+                        CategoryModel.remove(category)
+                    })
                 }
             }
 
             MenuItem {
                 text: qsTr("Add Entry")
                 onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"),{"category":categoryName})
+                    var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"),
+                                                    { "category": category.name })
                     dialog.accepted.connect(function() {
-                        percentIndicator.value = 0
-                        percentage = DBmanager.getPercentageForCategory(categoryName)
-                        animationTimer.running = true
-                        totalThisMonth = DBmanager.getTotalSpentThisMonthInCategory(categoryName)
-                        model.clear()
-                        expenses = DBmanager.getSpentThisMonthInCategory(categoryName)
-                        for(var i = 0; i < expenses.length; i++)
-                            model.append({"amount" : expenses[i].amount, "desc" : expenses[i].desc, "date" : expenses[i].date})
+                        expenseListModel.add(dialog.category, dialog.amount, dialog.desc)
                     })
                 }
             }
@@ -88,12 +69,14 @@ Page {
             spacing: Theme.paddingSmall
 
             PageHeader {
-                title: categoryName
+                title: category.name
             }
 
             Label {
                 id: moneyLabel
-                text: qsTr("%1 %2", "1 is amount and 2 is currency").arg(totalThisMonth).arg(Preferences.getCurrency())
+                text: qsTr("%1 %2", "1 is amount and 2 is currency")
+                                                        .arg(totalThisMonth)
+                                                        .arg(Settings.currency)
                 anchors {horizontalCenter: parent.horizontalCenter}
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeExtraLarge*3
@@ -101,7 +84,8 @@ Page {
 
             Label {
                 anchors {horizontalCenter: parent.horizontalCenter}
-                text: qsTr("in %1 this month", "subtitle of the amount spent in the CategoryView").arg(categoryName)
+                text: qsTr("in %1 this month", "subtitle of the amount spent in the CategoryView")
+                                                              .arg(category.name)
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
@@ -117,9 +101,9 @@ Page {
             }
             width: parent.width
             minimumValue: 0
-            maximumValue: 100
+            maximumValue: total
             value: 0
-            valueText: qsTr("%1 %").arg(value)
+            valueText: qsTr("%1 %").arg(Math.round(value / maximumValue * 100))
             label: qsTr("of the total", "subtitle of the percentagebar")
         }
 
@@ -137,14 +121,20 @@ Page {
 
         SilicaListView {
             id: expensesListView
-            model: model
+            model: ExpenseListModel {
+                id: expenseListModel
+                categoryFilter: category
+                dateFilter: Qt.formatDate(new Date(), "yyyy.MM")
+                reverse: true
+            }
             anchors {
                 top: insertionsLabel.bottom
                 topMargin: Theme.paddingLarge
             }
             clip:true
             width: parent.width
-            height: page.height - column.height - percentIndicator.height - insertionsLabel.height - Theme.paddingLarge*2*1.2 - Theme.paddingSmall
+            height: page.height - column.height - percentIndicator.height
+                    - insertionsLabel.height - Theme.paddingLarge*2*1.2 - Theme.paddingSmall
 
             delegate: BackgroundItem {
                 id: delegate
@@ -157,21 +147,23 @@ Page {
 
                     Label {
                         id: dateLabel
-                        text: makeMeABeautifulDate(date)
+                        text: Qt.formatDate(date, Qt.DefaultLocaleShortDate)
                         color: Theme.primaryColor
                     }
 
                     Label {
                         id: amountLabel
-                        text: qsTr("amount: %1 %2", "1 is amount and 2 is currency").arg(amount).arg(Preferences.getCurrency())
+                        text: qsTr("%1 %2", "1 is amount and 2 is currency")
+                                                            .arg(amount)
+                                                            .arg(Settings.currency)
                         color: Theme.primaryColor
                     }
                 }
 
                 Label {
                     id: descLabel
-                    text: desc
-                    visible: (desc !== undefined)
+                    text: description
+                    visible: (description !== undefined)
                     color: Theme.highlightColor
                     x: Theme.paddingLarge*2
                     anchors {
@@ -181,13 +173,11 @@ Page {
                 }
 
                 onPressAndHold: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteEntryDialog.qml"),{"category":categoryName,"amount": amount, "desc": desc, "date": date})
+                    var expense = expenseListModel.get(index)
+                    var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteEntryDialog.qml"),
+                                                { "expense": expense })
                     dialog.accepted.connect(function() {
-                        percentIndicator.value = 0
-                        percentage = DBmanager.getPercentageForCategory(categoryName)
-                        animationTimer.running = true
-                        totalThisMonth = DBmanager.getTotalSpentThisMonthInCategory(categoryName)
-                        refresh()
+                        expenseListModel.remove(index)
                     })
                 }
             }

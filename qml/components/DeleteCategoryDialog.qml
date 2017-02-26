@@ -1,10 +1,9 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtQuick.LocalStorage 2.0
-import "../JS/dbmanager.js" as DBmanager
+import harbour.zatraty 1.0
 
 Dialog {
-    property string category
+    property Category category
 
     function isTheChoosenOne(page) {
         if((page + "").indexOf("FirstPage") > -1)
@@ -15,22 +14,16 @@ Dialog {
     acceptDestinationAction: PageStackAction.Pop
     acceptDestination: pageStack.find(isTheChoosenOne);
 
-    Label {
-        id: deleteCategoryLabel
-        text: qsTr("Delete Category")
-        anchors {
-            top: parent.top
-            topMargin: Theme.paddingLarge
-            horizontalCenter: parent.horizontalCenter
-        }
-        color: Theme.secondaryHighlightColor
-        font.pixelSize: Theme.fontSizeExtraLarge
+    DialogHeader {
+        id: header
+        title: qsTr("Delete Category")
+        acceptText: qsTr("Delete")
     }
 
     Label {
         id: warningLabel
         anchors {
-            top: deleteCategoryLabel.bottom
+            top: header.bottom
             topMargin: Theme.paddingLarge
             horizontalCenter: parent.horizontalCenter
         }
@@ -53,12 +46,7 @@ Dialog {
         wrapMode: Text.WordWrap
         horizontalAlignment: TextInput.AlignHCenter
         width: parent.width*0.8
-        text: qsTr("All your data related with this category (%1) will be lost!!").arg(category)
-    }
-
-
-    onDone: {
-        if (result === DialogResult.Accepted)
-            DBmanager.deleteCategory(category);
+        text: qsTr("All your data related with this category (%1) will be lost!!")
+                                                             .arg(category.name)
     }
 }
