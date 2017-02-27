@@ -27,13 +27,9 @@ Page {
             refresh()
     }
 
-    Component.onCompleted: {
-        // By default false => TypeError: Cannot read property 'backIndicatorDown' of null
-        pageStack.backNavigation = true
-    }
-
     SilicaFlickable {
         anchors.fill: parent
+        contentHeight: column.height
 
         PullDownMenu {
             MenuItem {
@@ -62,8 +58,6 @@ Page {
                 onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
             }
         }
-
-        contentHeight: column.height
 
         Column {
             id: column
