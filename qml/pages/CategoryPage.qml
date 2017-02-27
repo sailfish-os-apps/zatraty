@@ -36,6 +36,7 @@ Page {
 
     SilicaFlickable {
         anchors.fill: parent
+        contentHeight: column.height
 
         PullDownMenu {
             MenuItem {
@@ -61,8 +62,6 @@ Page {
             }
         }
 
-        contentHeight: column.height
-
         Column {
             id: column
             width: page.width
@@ -74,12 +73,17 @@ Page {
 
             Label {
                 id: moneyLabel
-                text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                                                        .arg(totalThisMonth)
-                                                        .arg(Settings.currency)
-                anchors {horizontalCenter: parent.horizontalCenter}
+                anchors.horizontalCenter: parent.horizontalCenter
                 color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge*3
+                width: parent.width
+                height: contentHeight
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                font.pixelSize: Theme.fontSizeExtraLarge * 3
+                fontSizeMode: Text.HorizontalFit
+                text: qsTr("%1 %2", "1 is amount and 2 is currency")
+                                                        .arg(Math.round(totalThisMonth))
+                                                        .arg(Settings.currency)
             }
 
             Label {

@@ -78,7 +78,7 @@ Page {
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeExtraLarge * 3
                 fontSizeMode: Text.HorizontalFit
-                text: "%1 %2".arg(totalThisMonth)
+                text: "%1 %2".arg(Math.round(totalThisMonth))
                              .arg(Settings.currency)
             }
 
