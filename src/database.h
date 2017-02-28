@@ -7,11 +7,13 @@
 #include <QVector>
 #include <QString>
 #include <QQmlEngine>
+#include <QFutureWatcher>
 
 class DataBase : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString error READ error WRITE setError NOTIFY errorChanged)
+    Q_PROPERTY(bool importation READ import WRITE setImport NOTIFY importChanged)
 public:
     explicit DataBase(QObject* = 0);
     ~DataBase();
@@ -31,9 +33,13 @@ public:
     bool setError(const QSqlError&);
     Q_SIGNAL void errorChanged(const QString&);
 
+    bool import() const;
+    void setImport(bool);
+    Q_SIGNAL void importChanged(bool);
+
     Q_INVOKABLE bool init();
     Q_INVOKABLE bool reset();
-    Q_INVOKABLE bool importDataFromOldExpenseApp();
+    static bool importDataFromOldExpenseApp();
 
     const QMap<QString, QVector<QPair<QString, QString>>> Tables = {
         {"expense", {
@@ -54,9 +60,12 @@ private:
 
     QString m_error;
     QSqlDatabase m_dbase;
+    QFutureWatcher<bool> m_importWatcher;
 
 signals:
     void updated();
+private slots:
+    void importFinished();
 };
 
 #endif // DATABASE_H

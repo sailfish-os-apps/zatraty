@@ -6,6 +6,7 @@ CategoryModel::CategoryModel(QObject *parent) :
     QObject(parent)
 {
     refresh();
+    connect(&DataBase::instance(), &DataBase::updated, this, &CategoryModel::refresh);
 }
 
 CategoryModel &CategoryModel::instance()

@@ -189,19 +189,23 @@
         <translation>Будут импортированы данные из старого приложения Expense</translation>
     </message>
     <message>
-        <source>Data from old Expense app already imported</source>
-        <translation>Данные от старого приложения Expense уже импортированы</translation>
+        <source>Data already imported</source>
+        <translation>Данные уже импортированы</translation>
     </message>
 </context>
 <context>
     <name>ImportDataPage</name>
     <message>
-        <source>Done.</source>
+        <source>Import data</source>
+        <translation>Импорт данных</translation>
+    </message>
+    <message>
+        <source>Done</source>
         <translation>Готово</translation>
     </message>
     <message>
-        <source>Import data</source>
-        <translation>Импорт данных</translation>
+        <source>Import in progress...</source>
+        <translation>Импорт в процессе...</translation>
     </message>
 </context>
 <context>

@@ -1,7 +1,7 @@
 TARGET = harbour-zatraty
 
 CONFIG += sailfishapp c++11
-QT += sql
+QT += sql concurrent
 
 SOURCES += src/harbour-zatraty.cpp \
     src/category.cpp \

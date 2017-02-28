@@ -6,11 +6,22 @@ Page {
     id: importResult
 
     function doImport() {
-        if (!DataBase.importDataFromOldExpenseApp())
-            importResultLabel.text = DataBase.error
-        else
-            importResultLabel.text = qsTr("Done.")
-        busyIndicator.visible = false
+        DataBase.importation = true
+    }
+
+    Timer {
+        id: importTimer
+        interval: 1000
+        repeat: true
+        running: DataBase.importation
+
+        onRunningChanged: {
+            if (!running) {
+                importResultLabel.text = DataBase.error
+                if (importResultLabel.text === "")
+                    importResultLabel.text = qsTr("Done")
+            }
+        }
     }
 
     PageHeader {
@@ -30,14 +41,13 @@ Page {
         wrapMode: Text.WordWrap
         horizontalAlignment: TextInput.AlignHCenter
         width: parent.width*0.8
-        text: "..."
+        text: qsTr("Import in progress...")
     }
 
     BusyIndicator {
         id: busyIndicator
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent
-        visible: true
-        running: visible
+        running: importTimer.running
     }
 }

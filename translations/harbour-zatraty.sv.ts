@@ -189,18 +189,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Data from old Expense app already imported</source>
+        <source>Data already imported</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ImportDataPage</name>
     <message>
-        <source>Done.</source>
+        <source>Import data</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Import data</source>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Import in progress...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

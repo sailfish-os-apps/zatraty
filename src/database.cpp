@@ -2,6 +2,8 @@
 #include "settings.h"
 #include "category.h"
 #include "categorymodel.h"
+#include "expensemodel.h"
+#include <QtConcurrent/QtConcurrent>
 
 DataBase &DataBase::instance()
 {
@@ -91,7 +93,6 @@ qlonglong DataBase::insertCategory(const QString& category)
     if (q.numRowsAffected() > 0)
     {
         qlonglong id = q.lastInsertId().toLongLong();
-        emit updated();
         return id;
     }
     return -1;
@@ -104,7 +105,6 @@ qlonglong DataBase::insertExpense(qlonglong categoryId, const QDate& date, qreal
     if (q.numRowsAffected() > 0)
     {
         qlonglong id = q.lastInsertId().toLongLong();
-        emit updated();
         return id;
     }
     return -1;
@@ -117,7 +117,6 @@ bool DataBase::deleteExpense(qlonglong id)
     if (!setError(q.lastError()))
         return false;
 
-    emit updated();
     return true;
 }
 
@@ -132,7 +131,6 @@ bool DataBase::deleteCategory(qlonglong id)
     if (!setError(q.lastError()))
         return false;
 
-    emit updated();
     return true;
 }
 
@@ -187,17 +185,35 @@ bool DataBase::setError(const QSqlError& error)
     return true;
 }
 
+bool DataBase::import() const
+{
+    return m_importWatcher.isRunning();
+}
+
+void DataBase::setImport(bool import)
+{
+    if (import)
+    {
+        QFuture<bool> future = QtConcurrent::run(importDataFromOldExpenseApp);
+        m_importWatcher.setFuture(future);
+
+        connect(&m_importWatcher, SIGNAL(finished()), this, SLOT(importFinished()));
+        emit importChanged(true);
+    }
+}
+
 bool DataBase::importDataFromOldExpenseApp()
 {
     QString dbName("Categories");
     QString oldStoragePath(".local/share/harbour-expense/harbour-expense/QML/OfflineStorage");
     QString offlineStoragePath(QDir::homePath() + QDir::separator() + oldStoragePath);
 
+    DataBase& db = DataBase::instance();
     QString oldDBPath;
     QDir storageDir(offlineStoragePath + QDir::separator() + "Databases");
     if (!storageDir.exists())
     {
-        setError(tr("Cannot find local storage dir %1!").arg(storageDir.absolutePath()));
+        db.setError(tr("Cannot find local storage dir %1!").arg(storageDir.absolutePath()));
         return false;
     }
 
@@ -216,7 +232,7 @@ bool DataBase::importDataFromOldExpenseApp()
 
     if (oldDBPath.isEmpty())
     {
-        setError(tr("There is no data base with name %1!").arg(dbName));
+        db.setError(tr("There is no data base with name %1!").arg(dbName));
         return false;
     }
 
@@ -224,14 +240,16 @@ bool DataBase::importDataFromOldExpenseApp()
     fromDB.setDatabaseName(oldDBPath);
     if (!fromDB.open())
     {
-        setError(tr("Cannot open data base: %1!").arg(fromDB.lastError().databaseText()));
+        db.setError(tr("Cannot open data base: %1!").arg(fromDB.lastError().databaseText()));
         return false;
     }
 
     QSqlQuery query = fromDB.exec("SELECT category FROM categories;");
     for (query.first(); query.isValid(); query.next())
-        insertCategory(query.value(0).toString());
+        db.insertCategory(query.value(0).toString());
+    CategoryModel::instance().refresh();
 
+    db.setError("");
     query = fromDB.exec("SELECT * FROM expense;");
     for (query.first(); query.isValid(); query.next())
     {
@@ -241,7 +259,8 @@ bool DataBase::importDataFromOldExpenseApp()
         QDate date = QDate::fromString(rec.value("date").toString(), "ddMMyyyy");
         QString desc = rec.value("desc").toString();
         CategoryPtr category = CategoryModel::instance().find(categoryName);
-        if (category && !insertExpense(category->id(), date, amount, desc))
+        if (category &&
+                !db.insertExpense(category->id(), date, amount, desc))
         {
             fromDB.close();
             return false;
@@ -249,9 +268,12 @@ bool DataBase::importDataFromOldExpenseApp()
     }
 
     fromDB.close();
-    Settings::instance().setValue("expense_data_imported", true);
-
-    emit updated();
-
     return true;
+}
+
+void DataBase::importFinished()
+{
+    Settings::instance().setValue("expense_data_imported", true);
+    emit updated();
+    emit importChanged(false);
 }

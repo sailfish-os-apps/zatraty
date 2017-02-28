@@ -8,6 +8,7 @@ ExpenseModel::ExpenseModel(QObject *parent) :
 {
     refresh();
     connect(&CategoryModel::instance(), &CategoryModel::updated, this, &ExpenseModel::refresh);
+    connect(&DataBase::instance(), &DataBase::updated, this, &ExpenseModel::refresh);
 }
 
 ExpenseModel& ExpenseModel::instance()

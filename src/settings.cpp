@@ -124,7 +124,14 @@ bool Settings::addCurrency(const QString& newCurrency)
 
 QVariant Settings::value(const QString &key, const QVariant &defvalue) const
 {
-    return m_settings.value(key, defvalue);
+    QVariant value = m_settings.value(key, defvalue);
+    if (value.type() == QVariant::String)
+    {
+        QString strValue(value.toString());
+        if (strValue == "true" || strValue == "false")
+            return value.toBool();
+    }
+    return value;
 }
 
 void Settings::setValue(const QString &key, const QVariant &value)

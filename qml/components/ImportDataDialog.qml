@@ -34,9 +34,10 @@ Dialog {
     }
 
     Component.onCompleted: {
-        if (Settings.value("expense_data_imported", false)) {
+        var imported = Settings.value("expense_data_imported", false)
+        if (imported) {
             dialog.canAccept = false
-            warningLabel.text = qsTr("Data from old Expense app already imported")
+            warningLabel.text = qsTr("Data already imported")
         }
     }
 }
