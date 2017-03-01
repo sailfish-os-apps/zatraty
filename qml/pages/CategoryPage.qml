@@ -39,16 +39,6 @@ Page {
         contentHeight: column.height
 
         PullDownMenu {
-            MenuItem {
-                text: qsTr("Delete Category")
-                onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteCategoryDialog.qml"),
-                                                { "category": category })
-                    dialog.accepted.connect(function() {
-                        CategoryModel.remove(category)
-                    })
-                }
-            }
 
             MenuItem {
                 text: qsTr("Add Entry")
@@ -140,9 +130,22 @@ Page {
             height: page.height - column.height - percentIndicator.height
                     - insertionsLabel.height - Theme.paddingLarge*2*1.2 - Theme.paddingSmall
 
-            delegate: BackgroundItem {
-                id: delegate
-                height: 100
+            delegate: ListItem {
+                id: delegat
+                menu: ContextMenu {
+                    MenuItem {
+                        text: qsTr("Delete")
+
+                        onClicked: {
+                            var expense = expenseListModel.get(index)
+                            var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteEntryDialog.qml"),
+                                                        { "expense": expense })
+                            dialog.accepted.connect(function() {
+                                expenseListModel.remove(index)
+                            })
+                        }
+                    }
+                }
 
                 Row {
                     id: dateAmountRow
@@ -174,15 +177,6 @@ Page {
                         top: dateAmountRow.bottom
                         topMargin: Theme.paddingSmall
                     }
-                }
-
-                onPressAndHold: {
-                    var expense = expenseListModel.get(index)
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteEntryDialog.qml"),
-                                                { "expense": expense })
-                    dialog.accepted.connect(function() {
-                        expenseListModel.remove(index)
-                    })
                 }
             }
             VerticalScrollDecorator {}

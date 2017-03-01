@@ -29,9 +29,21 @@ Page {
             }
         }
 
-        delegate: BackgroundItem {
+        delegate: ListItem {
             id: delegate
-            height: 100
+            menu: ContextMenu {
+                MenuItem {
+                    text: qsTr("Delete")
+                    onClicked: {
+                        var expense = monthExpensesModel.get(index)
+                        var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteEntryDialog.qml"),
+                                                    { "expense": expense })
+                        dialog.accepted.connect(function() {
+                            monthExpensesModel.remove(index)
+                        })
+                    }
+                }
+            }
 
             Label {
                 x: Theme.paddingLarge*2

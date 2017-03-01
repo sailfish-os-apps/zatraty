@@ -11,13 +11,13 @@
         <source>Categories</source>
         <translation>Категории</translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
 </context>
 <context>
     <name>CategoryPage</name>
-    <message>
-        <source>Delete Category</source>
-        <translation>Удалить категорию</translation>
-    </message>
     <message>
         <source>in %1 this month</source>
         <comment>subtitle of the amount spent in the CategoryView</comment>
@@ -44,6 +44,10 @@
     <message>
         <source>Add Entry</source>
         <translation>Добавить Данные</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -214,6 +218,10 @@
         <source>%1 %2 in %3</source>
         <comment>1 is amount, 2 is currency and 3 is the category</comment>
         <translation>%1 %2 за %3</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>

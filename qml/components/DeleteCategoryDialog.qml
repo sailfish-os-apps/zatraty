@@ -4,6 +4,7 @@ import harbour.zatraty 1.0
 
 Dialog {
     property Category category
+    property string name: category ? category.name : ""
 
     function isTheChoosenOne(page) {
         if((page + "").indexOf("FirstPage") > -1)
@@ -47,6 +48,6 @@ Dialog {
         horizontalAlignment: TextInput.AlignHCenter
         width: parent.width*0.8
         text: qsTr("All your data related with this category (%1) will be lost!!")
-                                                             .arg(category.name)
+                                                             .arg(name)
     }
 }

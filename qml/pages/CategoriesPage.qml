@@ -30,8 +30,21 @@ Page {
             title: qsTr("Categories")
         }
 
-        delegate: BackgroundItem {
+        delegate: ListItem {
             id: delegate
+            menu: ContextMenu {
+                MenuItem {
+                    text: qsTr("Delete")
+                    onClicked: {
+                        var category = categoryModel.get(index)
+                        var dialog = pageStack.push(Qt.resolvedUrl("../components/DeleteCategoryDialog.qml"),
+                                                    { "category": category })
+                        dialog.accepted.connect(function() {
+                            categoryModel.remove(index)
+                        })
+                    }
+                }
+            }
 
             Label {
                 x: Theme.paddingLarge

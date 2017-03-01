@@ -11,13 +11,13 @@
         <source>Categories</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CategoryPage</name>
-    <message>
-        <source>Delete Category</source>
-        <translation type="unfinished"></translation>
-    </message>
     <message>
         <source>in %1 this month</source>
         <comment>subtitle of the amount spent in the CategoryView</comment>
@@ -43,6 +43,10 @@
     </message>
     <message>
         <source>Add Entry</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -213,6 +217,10 @@
     <message>
         <source>%1 %2 in %3</source>
         <comment>1 is amount, 2 is currency and 3 is the category</comment>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
