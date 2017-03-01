@@ -1,2 +1,10 @@
+* Thu Mar 02 2017 Albert Shteiner <ckazzku@gmail.com> 0.2-1
+- Fix import data from Expense app
+- Fix height of drawer list with categories on NewEntryDialog
+- Choose category element as only button on NewEntryDialog
+- Delete items from list
+- Fix texts
+- Fix icon
+
 * Sun Feb 26 2017 Albert Shteiner <ckazzku@gmail.com> 0.1-1
 - Init
