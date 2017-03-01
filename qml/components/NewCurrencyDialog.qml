@@ -8,7 +8,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: qsTr("New Currancy")
+        title: qsTr("New currancy")
         acceptText: qsTr("Add")
     }
 

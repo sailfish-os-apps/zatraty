@@ -10,7 +10,7 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Add Category")
+                text: qsTr("Add category")
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../components/NewCategoryDialog.qml"))
                     dialog.accepted.connect(function() {

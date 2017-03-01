@@ -17,7 +17,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: qsTr("Delete Category")
+        title: qsTr("Delete category")
         acceptText: qsTr("Delete")
     }
 
@@ -47,7 +47,7 @@ Dialog {
         wrapMode: Text.WordWrap
         horizontalAlignment: TextInput.AlignHCenter
         width: parent.width*0.8
-        text: qsTr("All your data related with this category (%1) will be lost!!")
+        text: qsTr("All your data related with this category (%1) will be lost!")
                                                              .arg(name)
     }
 }

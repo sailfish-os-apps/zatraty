@@ -4,16 +4,16 @@
 <context>
     <name>CategoriesPage</name>
     <message>
-        <source>Add Category</source>
-        <translation>Добавить Категорию</translation>
-    </message>
-    <message>
         <source>Categories</source>
         <translation>Категории</translation>
     </message>
     <message>
         <source>Delete</source>
         <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Add category</source>
+        <translation>Добавить категорию</translation>
     </message>
 </context>
 <context>
@@ -34,7 +34,7 @@
     </message>
     <message>
         <source>This month:</source>
-        <translation>Текущий месяц:</translation>
+        <translation>Этот месяц:</translation>
     </message>
     <message>
         <source>%1 %2</source>
@@ -43,7 +43,7 @@
     </message>
     <message>
         <source>Add Entry</source>
-        <translation>Добавить Данные</translation>
+        <translation>Добавить затраты</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -107,29 +107,25 @@
 <context>
     <name>DeleteCategoryDialog</name>
     <message>
-        <source>Delete Category</source>
-        <translation>Удаление Категории</translation>
-    </message>
-    <message>
         <source>!</source>
         <comment>The exclamation mark in the DeleteCategory View</comment>
         <translation>!</translation>
     </message>
     <message>
-        <source>All your data related with this category (%1) will be lost!!</source>
-        <translation>Все выши данные по категории (%1) будут удалены!!</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Delete category</source>
+        <translation>Удаление категории</translation>
+    </message>
+    <message>
+        <source>All your data related with this category (%1) will be lost!</source>
+        <translation>Все ваши данные, связанные с этой категорией (%1) будут удалены!</translation>
     </message>
 </context>
 <context>
     <name>DeleteEntryDialog</name>
-    <message>
-        <source>Delete Item</source>
-        <translation>Удаление Данных</translation>
-    </message>
     <message>
         <source>amount: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
@@ -138,6 +134,10 @@
     <message>
         <source>Delete</source>
         <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Delete item</source>
+        <translation>Удаление элемента затрат</translation>
     </message>
 </context>
 <context>
@@ -165,10 +165,6 @@
         <translation>Категории</translation>
     </message>
     <message>
-        <source>Quick Add</source>
-        <translation>Добавить</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
@@ -177,13 +173,13 @@
         <comment>subtitle of the amount spent in the MainView</comment>
         <translation>потрачено в этом месяце</translation>
     </message>
+    <message>
+        <source>Quick add</source>
+        <translation>Добавить затраты</translation>
+    </message>
 </context>
 <context>
     <name>ImportDataDialog</name>
-    <message>
-        <source>Import Data</source>
-        <translation>Импорт Данных</translation>
-    </message>
     <message>
         <source>Import</source>
         <translation>Импортировать</translation>
@@ -195,6 +191,10 @@
     <message>
         <source>Data already imported</source>
         <translation>Данные уже импортированы</translation>
+    </message>
+    <message>
+        <source>Import data</source>
+        <translation>Импорт данных</translation>
     </message>
 </context>
 <context>
@@ -239,10 +239,6 @@
 <context>
     <name>NewCategoryDialog</name>
     <message>
-        <source>Choose a Name</source>
-        <translation>Выбрать Наименование</translation>
-    </message>
-    <message>
         <source>Name</source>
         <comment>placeholder for category name</comment>
         <translation>Наименование</translation>
@@ -251,13 +247,13 @@
         <source>Add</source>
         <translation>Добавить</translation>
     </message>
+    <message>
+        <source>New category</source>
+        <translation>Новая категория</translation>
+    </message>
 </context>
 <context>
     <name>NewCurrencyDialog</name>
-    <message>
-        <source>New Currancy</source>
-        <translation>Новая Валюта</translation>
-    </message>
     <message>
         <source>Add</source>
         <translation>Добавить</translation>
@@ -267,13 +263,13 @@
         <comment>placeholder for currency</comment>
         <translation>Валюта</translation>
     </message>
+    <message>
+        <source>New currancy</source>
+        <translation>Новая валюта</translation>
+    </message>
 </context>
 <context>
     <name>NewEntryDialog</name>
-    <message>
-        <source>New Entry</source>
-        <translation>Новое Значение</translation>
-    </message>
     <message>
         <source>Add</source>
         <translation>Добавить</translation>
@@ -288,25 +284,29 @@
         <comment>placeholder for description</comment>
         <translation>Описание</translation>
     </message>
+    <message>
+        <source>New entry</source>
+        <translation>Новый элемент затрат</translation>
+    </message>
 </context>
 <context>
     <name>ResetDatabaseDialog</name>
-    <message>
-        <source>Reset Database</source>
-        <translation>Сбросить Базу Данных</translation>
-    </message>
     <message>
         <source>!</source>
         <comment>The exclamation mark in the DeleteCategory View</comment>
         <translation>!</translation>
     </message>
     <message>
-        <source>All your data will be irreversibly lost!!</source>
-        <translation>Все ваши данные будут безвозвратно удалены!!</translation>
-    </message>
-    <message>
         <source>Reset</source>
         <translation>Сбросить</translation>
+    </message>
+    <message>
+        <source>Reset database</source>
+        <translation>Сброс базы данных</translation>
+    </message>
+    <message>
+        <source>All your data will be irreversibly lost!</source>
+        <translation>Все ваши данные будут безвозвратно удалены!</translation>
     </message>
 </context>
 <context>
@@ -331,20 +331,20 @@
         <translation>Настройки</translation>
     </message>
     <message>
-        <source>Reset Database</source>
-        <translation>Сбросить Базу Данных</translation>
-    </message>
-    <message>
         <source>About</source>
         <translation>О программе</translation>
     </message>
     <message>
-        <source>Add New Currency</source>
-        <translation>Добавить Новую Валюту</translation>
+        <source>Add new currency</source>
+        <translation>Добавить новую валюту</translation>
     </message>
     <message>
-        <source>Import Data</source>
-        <translation>Импорт Данных</translation>
+        <source>Reset database</source>
+        <translation>Сбросить базу данных</translation>
+    </message>
+    <message>
+        <source>Import data</source>
+        <translation>Импорт данных</translation>
     </message>
 </context>
 </TS>

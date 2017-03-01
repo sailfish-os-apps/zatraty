@@ -6,7 +6,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: qsTr("Reset Database")
+        title: qsTr("Reset database")
         acceptText: qsTr("Reset")
     }
 
@@ -36,7 +36,7 @@ Dialog {
         wrapMode: Text.WordWrap
         horizontalAlignment: TextInput.AlignHCenter
         width: parent.width*0.8
-        text: qsTr("All your data will be irreversibly lost!!")
+        text: qsTr("All your data will be irreversibly lost!")
     }
 
     onAccepted: {

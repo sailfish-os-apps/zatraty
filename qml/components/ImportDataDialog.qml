@@ -10,7 +10,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: qsTr("Import Data")
+        title: qsTr("Import data")
         acceptText: qsTr("Import")
     }
 

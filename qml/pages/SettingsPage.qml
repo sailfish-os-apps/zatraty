@@ -42,7 +42,7 @@ Page {
                 id: addCustomCurrency
                 width: parent.width * 0.7
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Add New Currency")
+                text: qsTr("Add new currency")
 
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../components/NewCurrencyDialog.qml"))
@@ -53,7 +53,7 @@ Page {
                 id: resetButton
                 width: parent.width * 0.7
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Reset Database")
+                text: qsTr("Reset database")
 
                 onClicked: pageStack.push(Qt.resolvedUrl("../components/ResetDatabaseDialog.qml"))
             }
@@ -62,7 +62,7 @@ Page {
                 id: importButton
                 width: parent.width * 0.7
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Import Data")
+                text: qsTr("Import data")
 
                 onClicked: pageStack.push(Qt.resolvedUrl("../components/ImportDataDialog.qml"))
             }

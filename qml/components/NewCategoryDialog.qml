@@ -8,7 +8,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: qsTr("Choose a Name")
+        title: qsTr("New category")
         acceptText: qsTr("Add")
     }
 

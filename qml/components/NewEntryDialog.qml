@@ -20,7 +20,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: qsTr("New Entry")
+        title: qsTr("New entry")
         acceptText: qsTr("Add")
     }
 

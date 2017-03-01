@@ -10,7 +10,7 @@ Dialog {
 
     DialogHeader {
         id: header
-        title: qsTr("Delete Item")
+        title: qsTr("Delete item")
         acceptText: qsTr("Delete")
     }
 
