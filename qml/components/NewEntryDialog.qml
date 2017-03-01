@@ -77,7 +77,8 @@ Dialog {
         id: categoriesDrawer
         open: false
         width: parent.width
-        height: 500*2
+        height: dialog.height + 4 * Theme.paddingLarge -
+             ( showCategoriesRow.height + amountField.height + descField.height)
         anchors {
             top: showCategoriesRow.bottom
             topMargin: Theme.paddingLarge
