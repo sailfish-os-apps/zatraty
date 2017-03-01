@@ -280,10 +280,6 @@
         <comment>placeholder for description</comment>
         <translation>Описание</translation>
     </message>
-    <message>
-        <source>Choose Category</source>
-        <translation>Выбрать Категорию</translation>
-    </message>
 </context>
 <context>
     <name>ResetDatabaseDialog</name>

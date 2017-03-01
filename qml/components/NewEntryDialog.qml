@@ -48,29 +48,17 @@ Dialog {
         placeholderText: qsTr("Desc", "placeholder for description")
     }
 
-    Row {
-        id: showCategoriesRow
+    Button {
+        id: categoryChooseButton
+        text: CategoryModel.mostUsed().name
+        width: parent.width - Theme.paddingLarge
         anchors {
             top: descField.bottom
             topMargin: Theme.paddingLarge
             horizontalCenter: parent.horizontalCenter
         }
-        spacing: Theme.paddingLarge
 
-        Button {
-            id: categoryChooseButton
-            text: qsTr("Choose Category")
-            anchors.verticalCenter: parent.verticalCenter
-            onClicked: categoriesDrawer.open = !categoriesDrawer.open
-        }
-
-        Label {
-            id: categoryLabel
-            text: CategoryModel.mostUsed().name
-            color: Theme.secondaryHighlightColor
-            font.pixelSize: Theme.fontSizeLarge
-            anchors.verticalCenter: parent.verticalCenter
-        }
+        onClicked: categoriesDrawer.open = !categoriesDrawer.open
     }
 
     Drawer {
@@ -78,9 +66,9 @@ Dialog {
         open: false
         width: parent.width
         height: dialog.height + 4 * Theme.paddingLarge -
-             ( showCategoriesRow.height + amountField.height + descField.height)
+             ( categoryChooseButton.height + amountField.height + descField.height)
         anchors {
-            top: showCategoriesRow.bottom
+            top: categoryChooseButton.bottom
             topMargin: Theme.paddingLarge
         }
 
@@ -101,7 +89,7 @@ Dialog {
                     color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
                 }
                 onClicked: {
-                    categoryLabel.text = name
+                    categoryChooseButton.text = name
                     categoriesDrawer.open = false
                 }
             }
@@ -109,7 +97,7 @@ Dialog {
     }
 
     onAccepted: {
-        category = categoryLabel.text
+        category = categoryChooseButton.text
         amount = parseFloat(amountField.text)
         desc = descField.text
     }
