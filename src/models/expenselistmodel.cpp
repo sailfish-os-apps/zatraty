@@ -73,6 +73,7 @@ void ExpenseListModel::refresh()
         else
             m_expenses.append(expense);
     }
+    emit layoutChanged();
 }
 
 bool ExpenseListModel::add(const QString& categoryName, qreal amount, const QString& descr)

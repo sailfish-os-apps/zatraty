@@ -6,14 +6,19 @@ Page {
     id: page
 
     property Category category
+    property real current
     property real total
-    property real totalThisMonth
+    property bool forCurrentMonth: true
 
     function refresh() {
-        percentIndicator.value = 0
+        if (forCurrentMonth) {
+            current = ExpenseModel.totalMonthAmount(new Date(), category)
+            total = ExpenseModel.totalAmount(category)
+        } else {
+            current = ExpenseModel.totalAmount(category)
+            total = ExpenseModel.totalAmount()
+        }
         animationTimer.running = true
-        total = ExpenseModel.totalAmount()
-        totalThisMonth = ExpenseModel.totalMonthAmount(new Date(), category)
     }
 
     onStatusChanged: {
@@ -26,11 +31,17 @@ Page {
         interval: 40
         repeat: true
         running: false
+        property real portion: 2
+        property int precision: 100
+        property real target: Math.round((100.0 * current) / total * precision) / precision
+        property bool reverse: percentIndicator.value > target
         onTriggered: {
-            var portion = total / interval;
-            if (percentIndicator.value < totalThisMonth)
-                percentIndicator.value += portion;
-            else stop()
+            if (Math.abs(percentIndicator.value - target) > portion) {
+                percentIndicator.value += (reverse ? -1 : 1) * portion
+            } else {
+                percentIndicator.value = target
+                stop()
+            }
         }
     }
 
@@ -39,6 +50,13 @@ Page {
         contentHeight: column.height
 
         PullDownMenu {
+            MenuItem {
+                text: forCurrentMonth ? qsTr("For all time") : qsTr("For current month")
+                onClicked: {
+                    forCurrentMonth = !forCurrentMonth
+                    refresh()
+                }
+            }
 
             MenuItem {
                 text: qsTr("Add Entry")
@@ -71,15 +89,15 @@ Page {
                 verticalAlignment: Text.AlignVCenter
                 font.pixelSize: Theme.fontSizeExtraLarge * 3
                 fontSizeMode: Text.HorizontalFit
-                text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                                                        .arg(Math.round(totalThisMonth))
+                text: qsTr("%1 %2",
+                           "1 is amount and 2 is currency")
+                                                        .arg(Math.round(current))
                                                         .arg(Settings.currency)
             }
 
             Label {
-                anchors {horizontalCenter: parent.horizontalCenter}
-                text: qsTr("in %1 this month", "subtitle of the amount spent in the CategoryView")
-                                                              .arg(category.name)
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: forCurrentMonth ? qsTr("for this month") : qsTr("for all time")
                 color: Theme.secondaryHighlightColor
                 font.pixelSize: Theme.fontSizeLarge
             }
@@ -95,9 +113,9 @@ Page {
             }
             width: parent.width
             minimumValue: 0
-            maximumValue: total
+            maximumValue: 100
             value: 0
-            valueText: qsTr("%1 %").arg(Math.round(value / maximumValue * 100))
+            valueText: qsTr("%1 %").arg(value)
             label: qsTr("of the total", "subtitle of the percentagebar")
         }
 
@@ -110,7 +128,8 @@ Page {
             }
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeLarge
-            text: qsTr("This month:")
+            text: qsTr("Expenses:")
+            visible: current > 0
         }
 
         SilicaListView {
@@ -118,7 +137,7 @@ Page {
             model: ExpenseListModel {
                 id: expenseListModel
                 categoryFilter: category
-                dateFilter: Qt.formatDate(new Date(), "yyyy.MM")
+                dateFilter: forCurrentMonth ? Qt.formatDate(new Date(), "yyyy.MM") : ""
                 reverse: true
             }
             anchors {

@@ -19,21 +19,12 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>in %1 this month</source>
-        <comment>subtitle of the amount spent in the CategoryView</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>%1 %</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>of the total</source>
         <comment>subtitle of the percentagebar</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This month:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -47,6 +38,26 @@
     </message>
     <message>
         <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For all time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>For current month</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>for this month</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>for all time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Expenses:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

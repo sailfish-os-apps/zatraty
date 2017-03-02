@@ -19,11 +19,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>in %1 this month</source>
-        <comment>subtitle of the amount spent in the CategoryView</comment>
-        <translation>для %1 в этом месяце</translation>
-    </message>
-    <message>
         <source>%1 %</source>
         <translation>%1 %</translation>
     </message>
@@ -31,10 +26,6 @@
         <source>of the total</source>
         <comment>subtitle of the percentagebar</comment>
         <translation>от всех затрат</translation>
-    </message>
-    <message>
-        <source>This month:</source>
-        <translation>Этот месяц:</translation>
     </message>
     <message>
         <source>%1 %2</source>
@@ -48,6 +39,26 @@
     <message>
         <source>Delete</source>
         <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>For all time</source>
+        <translation>За все время</translation>
+    </message>
+    <message>
+        <source>For current month</source>
+        <translation>За этот месяц</translation>
+    </message>
+    <message>
+        <source>for this month</source>
+        <translation>за этот месяц</translation>
+    </message>
+    <message>
+        <source>for all time</source>
+        <translation>за все время</translation>
+    </message>
+    <message>
+        <source>Expenses:</source>
+        <translation>Затраты:</translation>
     </message>
 </context>
 <context>
