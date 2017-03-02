@@ -18,20 +18,24 @@ Page {
             title: qsTr("History")
         }
 
-        delegate: BackgroundItem {
+        delegate: ListItem {
             id: delegate
-            height: 160
+            height: 150
+
+            Label {
+                id: valueLabel
+                x: 50
+                text: qsTr("%1 %2", "1 is amount and 2 is currency")
+                                                        .arg(percentIndicator.value)
+                                                        .arg(Settings.currency)
+            }
 
             ProgressBar {
                 id: percentIndicator
                 width: parent.width
-                anchors.verticalCenter: parent.verticalCenter
                 minimumValue: 0
                 maximumValue: ExpenseModel.totalAmount()
                 value: ExpenseModel.totalMonthAmount(date)
-                valueText: qsTr("%1 %2", "1 is amount and 2 is currency")
-                                                          .arg(value)
-                                                          .arg(Settings.currency)
                 label: Qt.formatDate(date, "MMMM yyyy")
             }
 
