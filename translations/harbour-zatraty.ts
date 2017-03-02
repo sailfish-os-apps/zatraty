@@ -190,6 +190,18 @@
     </message>
 </context>
 <context>
+    <name>HystoryPage</name>
+    <message>
+        <source>History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1 %2</source>
+        <comment>1 is amount and 2 is currency</comment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ImportDataDialog</name>
     <message>
         <source>Import</source>
@@ -232,18 +244,6 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MonthsPage</name>
-    <message>
-        <source>History</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>%1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>
