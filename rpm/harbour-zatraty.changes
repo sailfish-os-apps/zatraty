@@ -1,3 +1,8 @@
+* Fri Mar 03 2017 Albert Shteiner <ckazzku@gmail.com> 0.3-1
+- Extended category page
+- Int value on first page
+- Align value labels on hystory page
+
 * Thu Mar 02 2017 Albert Shteiner <ckazzku@gmail.com> 0.2-1
 - Fix import data from Expense app
 - Fix height of drawer list with categories on NewEntryDialog

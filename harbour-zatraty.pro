@@ -33,7 +33,8 @@ OTHER_FILES += qml/harbour-zatraty.qml \
     qml/JS/*.js \
     qml/components/*.qml \
     qml/pages/*.qml \
-    rpm/* \
+    rpm/*.changes \
+    rpm/*.yaml \
     translations/harbour-zatraty*.ts \
     harbour-zatraty.desktop
 
