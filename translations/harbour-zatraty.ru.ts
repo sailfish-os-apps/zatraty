@@ -154,11 +154,6 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <source>Last Month: %1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
-        <translation>Последний Месяц: %1 %2</translation>
-    </message>
-    <message>
         <source>Total: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>Итого: %1 %2</translation>
@@ -187,6 +182,11 @@
     <message>
         <source>Quick add</source>
         <translation>Добавить затраты</translation>
+    </message>
+    <message>
+        <source>Last month: %1 %2</source>
+        <comment>1 is amount and 2 is currency</comment>
+        <translation>Прошлый месяц: %1 %2</translation>
     </message>
 </context>
 <context>

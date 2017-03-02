@@ -154,11 +154,6 @@
 <context>
     <name>FirstPage</name>
     <message>
-        <source>Last Month: %1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Total: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation type="unfinished"></translation>
@@ -186,6 +181,11 @@
     </message>
     <message>
         <source>Quick add</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Last month: %1 %2</source>
+        <comment>1 is amount and 2 is currency</comment>
         <translation type="unfinished"></translation>
     </message>
 </context>

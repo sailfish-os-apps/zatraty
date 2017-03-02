@@ -99,7 +99,7 @@ Page {
             }
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeMedium
-            text: qsTr("Last Month: %1 %2", "1 is amount and 2 is currency")
+            text: qsTr("Last month: %1 %2", "1 is amount and 2 is currency")
                                             .arg(Math.round(totalLastMonth))
                                             .arg(Settings.currency)
         }
