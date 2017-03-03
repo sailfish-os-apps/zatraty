@@ -25,12 +25,8 @@ Dialog {
         }
     }
 
-    onDone: {
-        if (result === DialogResult.Accepted) {
-            if (text.length > 0) {
-                Settings.addCurrency(currencyField.text)
-            }
-        }
+    onAccepted: {
+        Settings.addCurrency(currencyField.text)
         appWindow.quickAddOpen = false
     }
 }
