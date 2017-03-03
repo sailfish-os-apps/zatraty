@@ -89,6 +89,25 @@
     </message>
 </context>
 <context>
+    <name>CurrenciesPage</name>
+    <message>
+        <source>Currencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DataBase</name>
     <message>
         <source>Required sqlite driver not available!</source>
@@ -334,19 +353,11 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <source>Currency: </source>
-        <translation>Valuta: </translation>
-    </message>
-    <message>
         <source>Settings</source>
-        <translation>Impostazioni</translation>
+        <translation type="unfinished">Impostazioni</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>About</translation>
-    </message>
-    <message>
-        <source>Add new currency</source>
+        <source>Currency: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -356,6 +367,10 @@
     <message>
         <source>Import data</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">About</translation>
     </message>
 </context>
 </TS>

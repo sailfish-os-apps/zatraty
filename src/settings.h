@@ -30,6 +30,7 @@ public:
     QString currency();
     QStringList currencies();
     Q_INVOKABLE bool addCurrency(const QString&);
+    Q_INVOKABLE bool delCurrency(int);
 
     Q_INVOKABLE QVariant value(const QString&, const QVariant& = QVariant()) const;
     Q_INVOKABLE void setValue(const QString&, const QVariant&);

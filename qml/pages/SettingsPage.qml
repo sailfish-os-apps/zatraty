@@ -5,11 +5,8 @@ import harbour.zatraty 1.0
 Page {
     id: settingsPage
 
-    property var options: Settings.currencies
-
     SilicaFlickable {
         anchors.fill: parent
-
         contentHeight: column.height
 
         Column {
@@ -21,32 +18,13 @@ Page {
                 title: qsTr("Settings")
             }
 
-            ComboBox {
-                id: currencyComboBox
-                width: parent.width * 0.75
-                anchors {horizontalCenter: parent.horizontalCenter}
-                label: qsTr("Currency: ")
-                currentIndex: Settings.value("currency", 0)
-
-                menu: ContextMenu {
-                    Repeater {
-                        model: options
-                        MenuItem { text: options[index]}
-                    }
-                }
-
-                onCurrentIndexChanged: Settings.setValue("currency", currentIndex)
-            }
-
             Button {
-                id: addCustomCurrency
+                id: currencyButton
                 width: parent.width * 0.7
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: qsTr("Add new currency")
+                text: qsTr("Currency: ") + Settings.currency
 
-                onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/NewCurrencyDialog.qml"))
-                }
+                onClicked: pageStack.push(Qt.resolvedUrl("CurrenciesPage.qml"))
             }
 
             Button {

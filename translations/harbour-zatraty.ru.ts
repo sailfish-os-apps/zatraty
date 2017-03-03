@@ -89,6 +89,25 @@
     </message>
 </context>
 <context>
+    <name>CurrenciesPage</name>
+    <message>
+        <source>Currencies</source>
+        <translation>Валюты</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Deleting currency</source>
+        <translation>Удаление валюты</translation>
+    </message>
+    <message>
+        <source>Add currency</source>
+        <translation>Добавить валюту</translation>
+    </message>
+</context>
+<context>
     <name>DataBase</name>
     <message>
         <source>Required sqlite driver not available!</source>
@@ -334,28 +353,24 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <source>Currency: </source>
-        <translation>Валюта: </translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>О программе</translation>
-    </message>
-    <message>
-        <source>Add new currency</source>
-        <translation>Добавить новую валюту</translation>
+        <source>Currency: </source>
+        <translation>Валюта: </translation>
     </message>
     <message>
         <source>Reset database</source>
-        <translation>Сбросить базу данных</translation>
+        <translation>Сброс базы данных</translation>
     </message>
     <message>
         <source>Import data</source>
         <translation>Импорт данных</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>О программе</translation>
     </message>
 </context>
 </TS>

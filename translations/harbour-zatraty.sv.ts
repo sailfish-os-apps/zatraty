@@ -89,6 +89,25 @@
     </message>
 </context>
 <context>
+    <name>CurrenciesPage</name>
+    <message>
+        <source>Currencies</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Ta bort</translation>
+    </message>
+    <message>
+        <source>Deleting currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add currency</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DataBase</name>
     <message>
         <source>Required sqlite driver not available!</source>
@@ -334,20 +353,12 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <source>Currency: </source>
-        <translation>Valuta: </translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>Om</translation>
-    </message>
-    <message>
-        <source>Add new currency</source>
-        <translation>Lägg till ny valuta</translation>
+        <source>Currency: </source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset database</source>
@@ -356,6 +367,10 @@
     <message>
         <source>Import data</source>
         <translation>Importera data</translation>
+    </message>
+    <message>
+        <source>About</source>
+        <translation>Om</translation>
     </message>
 </context>
 </TS>

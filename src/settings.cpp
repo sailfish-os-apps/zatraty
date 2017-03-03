@@ -118,6 +118,36 @@ bool Settings::addCurrency(const QString& newCurrency)
     return true;
 }
 
+bool Settings::delCurrency(int index)
+{
+    int size = m_settings.value("currencies/size", 0).toInt();
+    if (index >= size)
+    {
+        setError(tr("Incorrect index of currency"));
+        return false;
+    }
+
+    QStringList currencylist = currencies();
+    currencylist.removeAt(index);
+    m_settings.remove("currencies");
+
+    m_settings.beginWriteArray("currencies");
+    for (int i = 0; i < currencylist.count(); ++i)
+    {
+        m_settings.setArrayIndex(i);
+        m_settings.setValue("currency", currencylist.at(i));
+    }
+    m_settings.endArray();
+
+    int current = m_settings.value("currency").toInt();
+    if (current == index)
+        m_settings.setValue("currency", 0);
+
+    emit currenciesChanged(currencylist);
+
+    return true;
+}
+
 QVariant Settings::value(const QString &key, const QVariant &defvalue) const
 {
     QVariant value = m_settings.value(key, defvalue);
