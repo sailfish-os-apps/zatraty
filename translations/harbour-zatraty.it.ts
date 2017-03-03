@@ -323,11 +323,11 @@
 <context>
     <name>Settings</name>
     <message>
-        <source>Incorrect index of currency</source>
+        <source>Currency &apos;%s&apos; already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Currency &apos;%s&apos; already exists</source>
+        <source>Incorrect index of currency</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

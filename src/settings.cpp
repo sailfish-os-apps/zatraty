@@ -1,27 +1,23 @@
 #include "settings.h"
 #include <QDebug>
 #include <QCoreApplication>
+#include <QtGlobal>
 
 Settings::Settings()
 {
-    if (m_settings.contains("version"))
-    {
-        if (appVersion() != qApp->applicationVersion())
-            m_settings.setValue("version", qApp->applicationVersion());
-    }
-    else
+    if (isFirstRun())
     {
         m_settings.setValue("version", qApp->applicationVersion());
         m_settings.setValue("expense_data_imported", false);
 
-        QStringList currencies {"€", "£", "$", "₽", "Rs"};
-        m_settings.beginWriteArray("currencies", currencies.length());
-        for (int i = 0; i < currencies.length(); ++i)
-        {
-            m_settings.setArrayIndex(i);
-            m_settings.setValue("currency", currencies.at(i));
-        }
-        m_settings.endArray();
+        updateCurrencies();
+    }
+    else if (isOldSettings())
+    {
+        if (isOldSettings("0.4"))
+            updateCurrencies();
+
+        m_settings.setValue("version", qApp->applicationVersion());
     }
 }
 
@@ -139,4 +135,49 @@ void Settings::setValue(const QString &key, const QVariant &value)
     m_settings.setValue(key, value);
     if (key == "currency")
         emit currencyChanged(currency());
+}
+
+void Settings::updateCurrencies()
+{
+    QStringList currencies { "€", "£", "$", "₽", "₹", "¥", "₩", "₱", "฿", "₫", "₪", "Rs", "kr" };
+    int size = m_settings.beginReadArray("currencies");
+    for (int i = 0; i < size; ++i)
+    {
+        m_settings.setArrayIndex(i);
+        QString currency = m_settings.value("currency").toString();
+        currencies.removeAll(currency);
+    }
+    m_settings.endArray();
+
+    m_settings.beginWriteArray("currencies", size + currencies.length());
+    for (int i = 0; i < currencies.length(); ++i)
+    {
+        m_settings.setArrayIndex(i + size);
+        m_settings.setValue("currency", currencies.at(i));
+    }
+    m_settings.endArray();
+}
+
+bool Settings::isOldSettings(const QString& version)
+{
+    if (isFirstRun())
+        return false;
+
+    QStringList settingsVersion = appVersion().split(".");
+    QStringList appVersion = version.isNull() ? qApp->applicationVersion().split(".") : version.split(".");
+
+    int count = qMax(appVersion.count(), settingsVersion.count());
+    for (int i = 0; i < count; ++i)
+    {
+        int appInt = appVersion.count() > i ? appVersion.at(i).toInt() : 0;
+        int setInt = settingsVersion.count() > i ? settingsVersion.at(i).toInt() : 0;
+        if (appInt != setInt)
+            return appInt > setInt;
+    }
+    return false;
+}
+
+bool Settings::isFirstRun()
+{
+    return !m_settings.contains("version");
 }

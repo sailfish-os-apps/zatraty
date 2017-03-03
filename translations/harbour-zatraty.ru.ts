@@ -323,12 +323,12 @@
 <context>
     <name>Settings</name>
     <message>
-        <source>Incorrect index of currency</source>
-        <translation>Некорректный индекс валюты</translation>
-    </message>
-    <message>
         <source>Currency &apos;%s&apos; already exists</source>
         <translation>Валюта &apos;%s&apos; уже существует</translation>
+    </message>
+    <message>
+        <source>Incorrect index of currency</source>
+        <translation>Некорректный индекс валюты</translation>
     </message>
 </context>
 <context>

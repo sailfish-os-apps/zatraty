@@ -323,12 +323,12 @@
 <context>
     <name>Settings</name>
     <message>
-        <source>Incorrect index of currency</source>
-        <translation>Felaktigt index för valutan</translation>
-    </message>
-    <message>
         <source>Currency &apos;%s&apos; already exists</source>
         <translation>Valutan &quot;%s&quot; finns redan</translation>
+    </message>
+    <message>
+        <source>Incorrect index of currency</source>
+        <translation>Felaktigt index för valutan</translation>
     </message>
 </context>
 <context>

@@ -37,6 +37,10 @@ public:
 private:
     Q_DISABLE_COPY(Settings)
 
+    void updateCurrencies();
+    bool isOldSettings(const QString& = QString());
+    bool isFirstRun();
+
     QSettings m_settings;
     QString m_error;
 
