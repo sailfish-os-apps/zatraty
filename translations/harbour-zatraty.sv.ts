@@ -92,7 +92,7 @@
     <name>CurrenciesPage</name>
     <message>
         <source>Currencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Valutor</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -100,11 +100,11 @@
     </message>
     <message>
         <source>Deleting currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Tar bort valuta</translation>
     </message>
     <message>
         <source>Add currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägg till valuta</translation>
     </message>
 </context>
 <context>
@@ -358,7 +358,7 @@
     </message>
     <message>
         <source>Currency: </source>
-        <translation type="unfinished"></translation>
+        <translation>Valuta: </translation>
     </message>
     <message>
         <source>Reset database</source>
