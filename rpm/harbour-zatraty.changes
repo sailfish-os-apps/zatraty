@@ -1,3 +1,8 @@
+* Sat Mar 04 2017 Albert Shteiner <ckazzku@gmail.com> 0.4-1
+- Fix add new currency
+- Add some default currencies
+- Add currency page
+
 * Fri Mar 03 2017 Albert Shteiner <ckazzku@gmail.com> 0.3-1
 - Extended category page
 - Int value on first page

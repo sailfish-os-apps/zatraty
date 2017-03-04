@@ -69,7 +69,7 @@ int main(int argc, char *argv[])
 {
     QGuiApplication *app = SailfishApp::application(argc, argv);
     app->setApplicationName("zatraty");
-    app->setApplicationVersion("0.3");
+    app->setApplicationVersion("0.4");
 
     QString locale = QLocale::system().name();
     qDebug() << "detected locale is " << locale;
