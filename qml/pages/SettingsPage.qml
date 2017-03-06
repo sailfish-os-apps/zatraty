@@ -5,18 +5,19 @@ import harbour.zatraty 1.0
 Page {
     id: settingsPage
 
+    PageHeader {
+        id: header
+        title: qsTr("Settings")
+    }
+
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: column.height
 
         Column {
             id: column
-            width: settingsPage.width
+            width: parent.width
+            anchors.centerIn: parent
             spacing: Theme.paddingLarge
-
-            PageHeader {
-                title: qsTr("Settings")
-            }
 
             Button {
                 id: currencyButton

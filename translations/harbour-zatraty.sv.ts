@@ -353,10 +353,6 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <source>Settings</source>
-        <translation>Inställningar</translation>
-    </message>
-    <message>
         <source>Currency: </source>
         <translation>Valuta: </translation>
     </message>
@@ -371,6 +367,10 @@
     <message>
         <source>About</source>
         <translation>Om</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Inställningar</translation>
     </message>
 </context>
 </TS>

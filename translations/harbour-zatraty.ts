@@ -353,10 +353,6 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Currency: </source>
         <translation type="unfinished"></translation>
     </message>
@@ -370,6 +366,10 @@
     </message>
     <message>
         <source>About</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

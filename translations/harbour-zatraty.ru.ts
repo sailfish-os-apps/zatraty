@@ -353,10 +353,6 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <source>Settings</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
         <source>Currency: </source>
         <translation>Валюта: </translation>
     </message>
@@ -371,6 +367,10 @@
     <message>
         <source>About</source>
         <translation>О программе</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>Настройки</translation>
     </message>
 </context>
 </TS>
