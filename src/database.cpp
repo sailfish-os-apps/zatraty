@@ -4,6 +4,8 @@
 #include "categorymodel.h"
 #include "expensemodel.h"
 #include <QtConcurrent/QtConcurrent>
+#include <QStandardPaths>
+#include <QFile>
 
 DataBase &DataBase::instance()
 {
@@ -27,8 +29,13 @@ DataBase::DataBase(QObject *parent) :
     }
 
     const QString& appName = Settings::instance().appName();
+    const QString& dbName = QString("%1/%2.sqlite")
+                                .arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation))
+                                .arg(Settings::instance().appName());
+    if (!QFile::exists(dbName) && QFile::exists(appName))
+        QFile::rename(appName, dbName);
     m_dbase = QSqlDatabase::addDatabase(driver, appName);
-    m_dbase.setDatabaseName(appName);
+    m_dbase.setDatabaseName(dbName);
     m_dbase.setConnectOptions("foreign_keys = ON");
 
     if (!m_dbase.open())
