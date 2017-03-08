@@ -20,7 +20,10 @@ public:
 
     static DataBase& instance();
     static QObject *qinstance(QQmlEngine*, QJSEngine*);
-    static QString& dateFormat();
+    static const QString &dateFormat();
+    static const QString &backupNameFormat();
+
+    QString backupDir();
 
     QSqlQuery exec(const QString&, const QStringList& = QStringList());
     qlonglong insertCategory(const QString&);
@@ -33,13 +36,15 @@ public:
     bool setError(const QSqlError&);
     Q_SIGNAL void errorChanged(const QString&);
 
+    bool restore(const QString&);
     bool import() const;
     void setImport(bool);
     Q_SIGNAL void importChanged(bool);
+    static bool importDataFromOldExpenseApp();
 
     Q_INVOKABLE bool init();
     Q_INVOKABLE bool reset();
-    static bool importDataFromOldExpenseApp();
+    Q_INVOKABLE bool makeBackup();
 
     const QMap<QString, QVector<QPair<QString, QString>>> Tables = {
         {"expense", {
@@ -58,9 +63,11 @@ public:
 private:
     Q_DISABLE_COPY(DataBase)
 
+    QString m_dbName;
+    QString m_backupDir;
     QString m_error;
     QSqlDatabase m_dbase;
-    QFutureWatcher<bool> m_importWatcher;
+    QFutureWatcher<bool> m_asyncWatcher;
 
 signals:
     void updated();

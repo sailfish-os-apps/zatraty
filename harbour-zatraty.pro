@@ -8,6 +8,7 @@ SOURCES += src/harbour-zatraty.cpp \
     src/database.cpp \
     src/expense.cpp \
     src/settings.cpp \
+    src/models/backuplistmodel.cpp \
     src/models/categorylistmodel.cpp \
     src/models/datelistmodel.cpp \
     src/models/expenselistmodel.cpp \
@@ -19,6 +20,7 @@ HEADERS += \
     src/database.h \
     src/expense.h \
     src/settings.h \
+    src/models/backuplistmodel.h \
     src/models/categorylistmodel.h \
     src/models/datelistmodel.h \
     src/models/expenselistmodel.h \

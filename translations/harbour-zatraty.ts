@@ -2,6 +2,33 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
+    <name>BackupsPage</name>
+    <message>
+        <source>Create backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data backups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applying backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CategoriesPage</name>
     <message>
         <source>Categories</source>
@@ -209,7 +236,7 @@
     </message>
 </context>
 <context>
-    <name>HystoryPage</name>
+    <name>HistoryPage</name>
     <message>
         <source>History</source>
         <translation type="unfinished"></translation>
@@ -370,6 +397,10 @@
     </message>
     <message>
         <source>Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backups</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

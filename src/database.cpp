@@ -18,6 +18,18 @@ QObject *DataBase::qinstance(QQmlEngine *, QJSEngine *)
     return &instance();
 }
 
+const QString& DataBase::dateFormat()
+{
+    static QString format("ddMMyyyy");
+    return format;
+}
+
+const QString &DataBase::backupNameFormat()
+{
+    static QString format("yyyyMMddHHmmsszzz");
+    return format;
+}
+
 DataBase::DataBase(QObject *parent) :
     QObject(parent)
 {
@@ -28,14 +40,17 @@ DataBase::DataBase(QObject *parent) :
         return;
     }
 
+    const QString& dataLocation = QStandardPaths::writableLocation(QStandardPaths::DataLocation);
+    m_backupDir = QString("%1/backups").arg(dataLocation);
     const QString& appName = Settings::instance().appName();
-    const QString& dbName = QString("%1/%2.sqlite")
-                                .arg(QStandardPaths::writableLocation(QStandardPaths::DataLocation))
-                                .arg(Settings::instance().appName());
-    if (!QFile::exists(dbName) && QFile::exists(appName))
-        QFile::rename(appName, dbName);
+    m_dbName = QString("%1/%2.sqlite").arg(dataLocation).arg(appName);
+    if (!QFile::exists(m_dbName) && QFile::exists(appName))
+    {
+        QDir(dataLocation).mkpath(".");
+        QFile::rename(appName, m_dbName);
+    }
     m_dbase = QSqlDatabase::addDatabase(driver, appName);
-    m_dbase.setDatabaseName(dbName);
+    m_dbase.setDatabaseName(m_dbName);
     m_dbase.setConnectOptions("foreign_keys = ON");
 
     if (!m_dbase.open())
@@ -154,10 +169,9 @@ bool DataBase::reset()
     return true;
 }
 
-QString& DataBase::dateFormat()
+QString DataBase::backupDir()
 {
-    static QString format("ddMMyyyy");
-    return format;
+    return m_backupDir;
 }
 
 QString DataBase::error()
@@ -192,9 +206,40 @@ bool DataBase::setError(const QSqlError& error)
     return true;
 }
 
+bool DataBase::restore(const QString &backupName)
+{
+    QFile dbFile(m_backupDir + QDir::separator() + backupName);
+    if (!dbFile.exists())
+        return false;
+
+    m_dbase.close();
+
+    QFile olddbFile(m_dbName);
+    if (!olddbFile.remove())
+    {
+        setError(olddbFile.errorString());
+        return false;
+    }
+
+    if (!dbFile.rename(m_dbName))
+    {
+        setError(dbFile.errorString());
+        return false;
+    }
+
+    if (!m_dbase.open())
+    {
+        setError(m_dbase.lastError());
+        return false;
+    }
+
+    emit updated();
+    return true;
+}
+
 bool DataBase::import() const
 {
-    return m_importWatcher.isRunning();
+    return m_asyncWatcher.isRunning();
 }
 
 void DataBase::setImport(bool import)
@@ -202,11 +247,28 @@ void DataBase::setImport(bool import)
     if (import)
     {
         QFuture<bool> future = QtConcurrent::run(importDataFromOldExpenseApp);
-        m_importWatcher.setFuture(future);
+        m_asyncWatcher.setFuture(future);
 
-        connect(&m_importWatcher, SIGNAL(finished()), this, SLOT(importFinished()));
+        connect(&m_asyncWatcher, SIGNAL(finished()), this, SLOT(importFinished()));
         emit importChanged(true);
     }
+}
+
+bool DataBase::makeBackup()
+{
+    const QDateTime& now = QDateTime::currentDateTimeUtc();
+
+    QDir backupdDir(m_backupDir);
+    if (!backupdDir.exists())
+        backupdDir.mkpath(".");
+
+    QFile db(m_dbase.databaseName());
+    if (!db.copy(m_backupDir + "/" + now.toString(backupNameFormat()) + ".backup"))
+    {
+        setError(db.errorString());
+        return false;
+    }
+    return true;
 }
 
 bool DataBase::importDataFromOldExpenseApp()
@@ -283,4 +345,5 @@ void DataBase::importFinished()
     Settings::instance().setValue("expense_data_imported", true);
     emit updated();
     emit importChanged(false);
+    disconnect(&m_asyncWatcher, SIGNAL(finished()), this, SLOT(importFinished()));
 }

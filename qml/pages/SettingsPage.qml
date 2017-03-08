@@ -47,6 +47,15 @@ Page {
             }
 
             Button {
+                id: backupButton
+                width: parent.width * 0.7
+                anchors.horizontalCenter: parent.horizontalCenter
+                text: qsTr("Backups")
+
+                onClicked: pageStack.push(Qt.resolvedUrl("BackupsPage.qml"))
+            }
+
+            Button {
                 id: contactLabel
                 width: parent.width * 0.7
                 anchors.horizontalCenter: parent.horizontalCenter

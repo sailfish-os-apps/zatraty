@@ -2,6 +2,33 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
+    <name>BackupsPage</name>
+    <message>
+        <source>Create backup</source>
+        <translation>Создание резервной копии</translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation>Применить</translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation>Удалить</translation>
+    </message>
+    <message>
+        <source>Deleting backup</source>
+        <translation>Удаление резервной копии</translation>
+    </message>
+    <message>
+        <source>Data backups</source>
+        <translation>Резервные копии данных</translation>
+    </message>
+    <message>
+        <source>Applying backup</source>
+        <translation>Применение резервной копии</translation>
+    </message>
+</context>
+<context>
     <name>CategoriesPage</name>
     <message>
         <source>Categories</source>
@@ -209,7 +236,7 @@
     </message>
 </context>
 <context>
-    <name>HystoryPage</name>
+    <name>HistoryPage</name>
     <message>
         <source>History</source>
         <translation>История</translation>
@@ -371,6 +398,10 @@
     <message>
         <source>Settings</source>
         <translation>Настройки</translation>
+    </message>
+    <message>
+        <source>Backups</source>
+        <translation>Резервные копии</translation>
     </message>
 </context>
 </TS>

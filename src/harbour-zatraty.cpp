@@ -46,6 +46,7 @@
 #include "category.h"
 #include "expense.h"
 #include "settings.h"
+#include "models/backuplistmodel.h"
 #include "models/categorylistmodel.h"
 #include "models/categorymodel.h"
 #include "models/datelistmodel.h"
@@ -60,6 +61,7 @@ void qmlRegisterTypes()
     qmlRegisterType<Category>("harbour.zatraty", 1, 0, "Category");
     qmlRegisterType<Expense>("harbour.zatraty", 1, 0, "Expense");
 
+    qmlRegisterType<BackupListModel>("harbour.zatraty", 1, 0, "BackupListModel");
     qmlRegisterType<CategoryListModel>("harbour.zatraty", 1, 0, "CategoryListModel");
     qmlRegisterType<ExpenseListModel>("harbour.zatraty", 1, 0, "ExpenseListModel");
     qmlRegisterType<DateListModel>("harbour.zatraty", 1, 0, "DateListModel");

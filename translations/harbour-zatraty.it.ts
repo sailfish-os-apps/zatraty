@@ -2,10 +2,37 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="it_IT">
 <context>
+    <name>BackupsPage</name>
+    <message>
+        <source>Create backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Apply</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Data backups</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Applying backup</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CategoriesPage</name>
     <message>
         <source>Categories</source>
-        <translation type="unfinished">Categorie</translation>
+        <translation>Categorie</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -209,15 +236,15 @@
     </message>
 </context>
 <context>
-    <name>HystoryPage</name>
+    <name>HistoryPage</name>
     <message>
         <source>History</source>
-        <translation type="unfinished">Storia</translation>
+        <translation>Storia</translation>
     </message>
     <message>
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
-        <translation type="unfinished">%1 %2</translation>
+        <translation>%1 %2</translation>
     </message>
 </context>
 <context>
@@ -259,7 +286,7 @@
     <message>
         <source>%1 %2 in %3</source>
         <comment>1 is amount, 2 is currency and 3 is the category</comment>
-        <translation type="unfinished">%1 %2 in %3</translation>
+        <translation>%1 %2 in %3</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -291,7 +318,7 @@
     <message>
         <source>Currency</source>
         <comment>placeholder for currency</comment>
-        <translation type="unfinished">Valuta</translation>
+        <translation>Valuta</translation>
     </message>
     <message>
         <source>New currancy</source>
@@ -366,11 +393,15 @@
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">About</translation>
+        <translation>About</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Impostazioni</translation>
+        <translation>Impostazioni</translation>
+    </message>
+    <message>
+        <source>Backups</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
