@@ -27,7 +27,7 @@ CoverBackground {
                color: Theme.highlightColor
                font.pixelSize: Theme.fontSizeLarge
                text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                        .arg(ExpenseModel.totalMonthAmount())
+                        .arg(Math.round(ExpenseModel.totalMonthAmount()))
                         .arg(Settings.currency)
            }
     }
