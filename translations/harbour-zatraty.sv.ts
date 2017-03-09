@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Om %1</translation>
     </message>
     <message>
         <source></source>
@@ -17,22 +17,22 @@
     </message>
     <message>
         <source>A simple app to manage your expenses.</source>
-        <translation type="unfinished"></translation>
+        <translation>En enkel app för att hantera dina utgifter.</translation>
     </message>
     <message>
         <source>Source code</source>
-        <translation type="unfinished"></translation>
+        <translation>Källkod</translation>
     </message>
 </context>
 <context>
     <name>BackupsPage</name>
     <message>
         <source>Create backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa säkerhetskopia</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillämpa</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -40,15 +40,15 @@
     </message>
     <message>
         <source>Deleting backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Tar bort säkerhetskopia</translation>
     </message>
     <message>
         <source>Data backups</source>
-        <translation type="unfinished"></translation>
+        <translation>Datasäkerhetskopior</translation>
     </message>
     <message>
         <source>Applying backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Tillämpar säkerhetskopian</translation>
     </message>
 </context>
 <context>
@@ -409,7 +409,7 @@
     </message>
     <message>
         <source>Backups</source>
-        <translation type="unfinished"></translation>
+        <translation>Säkerhetskopior</translation>
     </message>
 </context>
 </TS>
