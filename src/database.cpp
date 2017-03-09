@@ -5,7 +5,9 @@
 #include "expensemodel.h"
 #include <QtConcurrent/QtConcurrent>
 #include <QStandardPaths>
+#include <QTemporaryFile>
 #include <QFile>
+#include <zlib.h>
 
 DataBase &DataBase::instance()
 {
@@ -208,24 +210,35 @@ bool DataBase::setError(const QSqlError& error)
 
 bool DataBase::restore(const QString &backupName)
 {
-    QFile dbFile(m_backupDir + QDir::separator() + backupName);
-    if (!dbFile.exists())
+    QString backupFileName(m_backupDir + QDir::separator() + backupName);
+    if (!QFile::exists(backupFileName))
+        return false;
+
+    gzFile gzfp = gzopen(backupFileName.toStdString().c_str(), "rb9");
+    if (!gzfp)
         return false;
 
     m_dbase.close();
 
-    QFile olddbFile(m_dbName);
-    if (!olddbFile.remove())
-    {
-        setError(olddbFile.errorString());
-        return false;
-    }
-
-    if (!dbFile.rename(m_dbName))
+    QFile dbFile(m_dbName);
+    if (!dbFile.open(QFile::WriteOnly))
     {
         setError(dbFile.errorString());
         return false;
     }
+
+    char buf[1024] = { 0 };
+    qint64 len = 0;
+    while ((len = gzread(gzfp, buf, sizeof(buf))) > 0)
+    {
+        if (dbFile.write(buf, len) == -1)
+        {
+            setError(dbFile.errorString());
+            break;
+        }
+    }
+    dbFile.close();
+    gzclose(gzfp);
 
     if (!m_dbase.open())
     {
@@ -256,19 +269,53 @@ void DataBase::setImport(bool import)
 
 bool DataBase::makeBackup()
 {
-    const QDateTime& now = QDateTime::currentDateTimeUtc();
+    QString backupName(QDateTime::currentDateTimeUtc().toString(backupNameFormat()));
+    backupName = m_backupDir + QDir::separator() + backupName + ".backup";
 
     QDir backupdDir(m_backupDir);
     if (!backupdDir.exists())
         backupdDir.mkpath(".");
 
-    QFile db(m_dbase.databaseName());
-    if (!db.copy(m_backupDir + "/" + now.toString(backupNameFormat()) + ".backup"))
+    QTemporaryFile tempFile;
+    tempFile.open();
+    QString tempName(tempFile.fileName());
+    tempFile.remove();
+
+    QFile db(m_dbName);
+    if (db.copy(tempName))
     {
-        setError(db.errorString());
-        return false;
+        tempFile.setFileName(tempName);
+        if (!tempFile.open())
+        {
+            setError(tempFile.errorString());
+            return false;
+        }
+
+        gzFile gzfp = gzopen(backupName.toStdString().c_str(), "wb9");
+        if (!gzfp)
+        {
+            tempFile.close();
+            return false;
+        }
+
+        char buf[1024] = { 0 };
+        qint64 len = 0;
+        while ((len = tempFile.read(buf, sizeof(buf))) > 0)
+        {
+            if (gzwrite(gzfp, buf, (unsigned)len) != len)
+            {
+                setError(gzerror(gzfp, 0));
+                break;
+            }
+        }
+        tempFile.close();
+        gzclose(gzfp);
+
+        return true;
     }
-    return true;
+
+    setError(db.errorString());
+    return false;
 }
 
 bool DataBase::importDataFromOldExpenseApp()

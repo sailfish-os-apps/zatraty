@@ -40,6 +40,8 @@ OTHER_FILES += qml/harbour-zatraty.qml \
     translations/harbour-zatraty*.ts \
     harbour-zatraty.desktop
 
+LIBS += -lz
+
 CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-zatraty.de.ts \
                 translations/harbour-zatraty.it.ts \
