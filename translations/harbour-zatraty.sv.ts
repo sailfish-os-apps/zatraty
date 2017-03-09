@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="sv">
 <context>
+    <name>AboutPage</name>
+    <message>
+        <source>Version %1</source>
+        <translation>Version %1</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>A simple app to manage your expenses.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Source code</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BackupsPage</name>
     <message>
         <source>Create backup</source>
@@ -86,21 +109,6 @@
     <message>
         <source>Expenses:</source>
         <translation>Utgifter:</translation>
-    </message>
-</context>
-<context>
-    <name>ContactsPage</name>
-    <message>
-        <source>About</source>
-        <translation>Om</translation>
-    </message>
-    <message>
-        <source>A simple app to manage your money. This software is open source:</source>
-        <translation>En enkel app för att hantera dina pengar. Denna mjukvara är öppen källkod:</translation>
-    </message>
-    <message>
-        <source>Version %1</source>
-        <translation>Version %1</translation>
     </message>
 </context>
 <context>

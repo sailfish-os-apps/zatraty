@@ -2,6 +2,29 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="ru_RU">
 <context>
+    <name>AboutPage</name>
+    <message>
+        <source>Version %1</source>
+        <translation>Версия %1</translation>
+    </message>
+    <message>
+        <source>About %1</source>
+        <translation>О программе %1</translation>
+    </message>
+    <message>
+        <source></source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>A simple app to manage your expenses.</source>
+        <translation>Простое приложение для управления вашими затратами.</translation>
+    </message>
+    <message>
+        <source>Source code</source>
+        <translation>Исходный код</translation>
+    </message>
+</context>
+<context>
     <name>BackupsPage</name>
     <message>
         <source>Create backup</source>
@@ -86,21 +109,6 @@
     <message>
         <source>Expenses:</source>
         <translation>Затраты:</translation>
-    </message>
-</context>
-<context>
-    <name>ContactsPage</name>
-    <message>
-        <source>About</source>
-        <translation>О программе</translation>
-    </message>
-    <message>
-        <source>A simple app to manage your money. This software is open source:</source>
-        <translation>Простое приложение для управления вашими расходами. Это программное обеспечение с открытым исходным кодом:</translation>
-    </message>
-    <message>
-        <source>Version %1</source>
-        <translation>Версия %1</translation>
     </message>
 </context>
 <context>

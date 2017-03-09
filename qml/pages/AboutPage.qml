@@ -3,33 +3,25 @@ import Sailfish.Silica 1.0
 import harbour.zatraty 1.0
 
 Page {
-    id: contactsPage
+    id: page
 
     SilicaFlickable {
         anchors.fill: parent
-
         contentHeight: column.height
 
         Column {
             id: column
-            width: contactsPage.width
+            width: page.width
             spacing: Theme.paddingLarge
 
             PageHeader {
-                title: qsTr("About")
-            }
-
-            Label {
-                text: Settings.appName
-                color: Theme.highlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge*1.5
-                anchors.horizontalCenter: parent.horizontalCenter
+                title: qsTr("About %1").arg(Settings.appName)
             }
 
             Image {
                 anchors.horizontalCenter: parent.horizontalCenter
                 source: "/usr/share/icons/hicolor/86x86/apps/harbour-zatraty.png"
-                width: parent.width *0.2
+                width: parent.width * 0.2
                 height: width
             }
 
@@ -41,18 +33,19 @@ Page {
             }
 
             Label {
-                text: qsTr("A simple app to manage your money. This software is open source:")
+                text: qsTr("A simple app to manage your expenses.")
                 color: Theme.secondaryHighlightColor
                 anchors.horizontalCenter: parent.horizontalCenter
                 wrapMode: Text.WordWrap
                 horizontalAlignment: TextInput.AlignHCenter
-                width: parent.width*0.8
+                width: parent.width * 0.8
             }
 
-            Label {
+            Button {
+                text: qsTr("Source code")
                 anchors.horizontalCenter: parent.horizontalCenter
-                text: "<a href=\"https://github.com/ckazzku/zatraty/\">Github</a>";
-                onLinkActivated: Qt.openUrlExternally(link)
+                anchors.topMargin: Theme.paddingLarge
+                onClicked: Qt.openUrlExternally("https://github.com/ckazzku/zatraty")
             }
         }
     }

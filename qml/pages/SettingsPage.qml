@@ -56,12 +56,12 @@ Page {
             }
 
             Button {
-                id: contactLabel
+                id: aboutLabel
                 width: parent.width * 0.7
                 anchors.horizontalCenter: parent.horizontalCenter
                 text: qsTr("About")
 
-                onClicked: pageStack.push(Qt.resolvedUrl("ContactsPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
         }
     }
