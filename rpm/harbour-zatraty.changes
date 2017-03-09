@@ -1,3 +1,10 @@
+* Thu Mar 09 2017 Albert Shteiner <ckazzku@gmail.com> 0.5-1
+- Add backups support
+- Simple changes for about-page
+- Fix db file location
+- Fix settings page buttons
+- Fix rounded value on cover page
+
 * Sat Mar 04 2017 Albert Shteiner <ckazzku@gmail.com> 0.4-1
 - Fix add new currency
 - Add some default currencies
