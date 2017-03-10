@@ -46,10 +46,11 @@ DataBase::DataBase(QObject *parent) :
     m_backupDir = QString("%1/backups").arg(dataLocation);
     const QString& appName = Settings::instance().appName();
     m_dbName = QString("%1/%2.sqlite").arg(dataLocation).arg(appName);
-    if (!QFile::exists(m_dbName) && QFile::exists(appName))
+    if (!QFile::exists(m_dbName))
     {
         QDir(dataLocation).mkpath(".");
-        QFile::rename(appName, m_dbName);
+        if (QFile::exists(appName))
+            QFile::rename(appName, m_dbName);
     }
     m_dbase = QSqlDatabase::addDatabase(driver, appName);
     m_dbase.setDatabaseName(m_dbName);
