@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.zatraty 1.0
+import "../helpers"
 
 Page {
     id: hystoryPage
@@ -36,7 +37,7 @@ Page {
                 minimumValue: 0
                 maximumValue: ExpenseModel.totalAmount()
                 value: ExpenseModel.totalMonthAmount(date)
-                label: Qt.formatDate(date, "MMMM yyyy")
+                label: LocaleExt.formatDate(date, "MMMM yyyy")
             }
 
             onClicked: {

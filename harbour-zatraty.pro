@@ -35,6 +35,7 @@ OTHER_FILES += qml/harbour-zatraty.qml \
     qml/JS/*.js \
     qml/components/*.qml \
     qml/pages/*.qml \
+    qml/helpers/*.qml \
     rpm/*.changes \
     rpm/*.yaml \
     translations/harbour-zatraty*.ts \
@@ -47,4 +48,3 @@ TRANSLATIONS += translations/harbour-zatraty.de.ts \
                 translations/harbour-zatraty.it.ts \
                 translations/harbour-zatraty.sv.ts \
                 translations/harbour-zatraty.ru.ts
-
