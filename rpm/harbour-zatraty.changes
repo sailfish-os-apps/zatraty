@@ -1,3 +1,7 @@
+* Fri Mar 10 2017 Albert Shteiner <ckazzku@gmail.com> 0.6-1
+- Fix creating db on first run
+- Fix swedish translations
+
 * Thu Mar 09 2017 Albert Shteiner <ckazzku@gmail.com> 0.5-1
 - Add backups support
 - Simple changes for about-page
