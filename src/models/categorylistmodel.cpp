@@ -34,6 +34,7 @@ QVariant CategoryListModel::data(const QModelIndex& index, int role) const
 void CategoryListModel::refresh()
 {
     CategoryModel::instance().refresh();
+    emit layoutChanged();
 }
 
 bool CategoryListModel::add(const QString& name)

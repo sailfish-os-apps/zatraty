@@ -145,6 +145,16 @@ bool DataBase::deleteExpense(qlonglong id)
     return true;
 }
 
+bool DataBase::updateCategory(qlonglong id, const QString &name)
+{
+    QString idStr(QString::number(id));
+    QSqlQuery q = exec("UPDATE categories SET name=? WHERE id=?;", { name, idStr });
+    if (!setError(q.lastError()))
+        return false;
+
+    return true;
+}
+
 bool DataBase::deleteCategory(qlonglong id)
 {
     QString idStr(QString::number(id));

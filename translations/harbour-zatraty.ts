@@ -65,6 +65,10 @@
         <source>Add category</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CategoryPage</name>
@@ -313,7 +317,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New category</source>
+        <source>Category</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

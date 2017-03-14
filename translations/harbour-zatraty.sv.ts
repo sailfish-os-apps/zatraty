@@ -65,6 +65,10 @@
         <source>Add category</source>
         <translation>Lägg till kategori</translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CategoryPage</name>
@@ -313,8 +317,12 @@
         <translation>Lägg till</translation>
     </message>
     <message>
-        <source>New category</source>
-        <translation>Ny kategori</translation>
+        <source>Category</source>
+        <translation>Kategori</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

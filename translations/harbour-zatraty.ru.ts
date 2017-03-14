@@ -65,6 +65,10 @@
         <source>Add category</source>
         <translation>Добавить категорию</translation>
     </message>
+    <message>
+        <source>Rename</source>
+        <translation>Переименовать</translation>
+    </message>
 </context>
 <context>
     <name>CategoryPage</name>
@@ -313,8 +317,12 @@
         <translation>Добавить</translation>
     </message>
     <message>
-        <source>New category</source>
-        <translation>Новая категория</translation>
+        <source>Category</source>
+        <translation>Категория</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>Изменить</translation>
     </message>
 </context>
 <context>

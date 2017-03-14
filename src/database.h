@@ -30,6 +30,7 @@ public:
     qlonglong insertExpense(qlonglong, const QDate&, qreal, const QString& = QString());
     bool deleteCategory(qlonglong);
     bool deleteExpense(qlonglong);
+    bool updateCategory(qlonglong, const QString&);
 
     QString error();
     void setError(const QString&);

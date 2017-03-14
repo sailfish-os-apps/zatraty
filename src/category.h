@@ -7,7 +7,7 @@
 class Category : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QString name READ name CONSTANT)
+    Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
 public:
     explicit Category(QObject* = 0);
     ~Category();
@@ -17,6 +17,7 @@ public:
 
     QString name() const;
     void setName(const QString&);
+    Q_SIGNAL void nameChanged(const QString&);
 
     void incUseCount();
     void decUseCount();

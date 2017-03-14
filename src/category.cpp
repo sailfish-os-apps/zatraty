@@ -34,8 +34,16 @@ QString Category::name() const
 
 void Category::setName(const QString &name)
 {
+    if (name.isEmpty()) return;
+
     if (m_name != name)
-        m_name = name;
+    {
+        if (DataBase::instance().updateCategory(m_id, name))
+        {
+            m_name = name;
+            emit nameChanged(m_name);
+        }
+    }
 }
 
 quint32 Category::useCount() const

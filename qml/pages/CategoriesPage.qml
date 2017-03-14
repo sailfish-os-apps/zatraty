@@ -34,6 +34,18 @@ Page {
             id: delegate
             menu: ContextMenu {
                 MenuItem {
+                    text: qsTr("Rename")
+                    onClicked: {
+                        var category = categoryModel.get(index)
+                        var dialog = pageStack.push(Qt.resolvedUrl("../components/NewCategoryDialog.qml"),
+                                                    { "name": category.name })
+                        dialog.accepted.connect(function() {
+                            category.name = dialog.name
+                            categoryModel.refresh()
+                        })
+                    }
+                }
+                MenuItem {
                     text: qsTr("Delete")
                     onClicked: {
                         var category = categoryModel.get(index)

@@ -5,11 +5,16 @@ Dialog {
     id: dialog
     canAccept: false
     property string name
+    property bool isEdit: false
+
+    Component.onCompleted: {
+        dialog.isEdit = (name !== "")
+    }
 
     DialogHeader {
         id: header
-        title: qsTr("New category")
-        acceptText: qsTr("Add")
+        title: qsTr("Category")
+        acceptText: dialog.isEdit ? qsTr("Update") : qsTr("Add")
     }
 
     TextField {
@@ -20,8 +25,11 @@ Dialog {
             topMargin: Theme.paddingLarge
         }
         placeholderText: qsTr("Name", "placeholder for category name")
+        text: dialog.isEdit ? dialog.name : ""
         onTextChanged: {
             dialog.canAccept = (text !== "")
+            if (dialog.isEdit)
+                dialog.canAccept &= (text !== dialog.name)
         }
     }
 
