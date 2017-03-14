@@ -20,9 +20,8 @@ Page {
 
             Image {
                 anchors.horizontalCenter: parent.horizontalCenter
-                source: "/usr/share/icons/hicolor/86x86/apps/harbour-zatraty.png"
-                width: parent.width * 0.2
-                height: width
+                source: "qrc:///images/logo.png"
+                width: parent.width
             }
 
             Label {

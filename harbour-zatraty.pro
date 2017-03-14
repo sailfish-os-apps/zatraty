@@ -48,3 +48,6 @@ TRANSLATIONS += translations/harbour-zatraty.de.ts \
                 translations/harbour-zatraty.it.ts \
                 translations/harbour-zatraty.sv.ts \
                 translations/harbour-zatraty.ru.ts
+
+RESOURCES += \
+    images.qrc

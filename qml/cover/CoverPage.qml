@@ -4,6 +4,11 @@ import harbour.zatraty 1.0
 
 CoverBackground {
 
+    Image {
+        source: "qrc:///images/cover.png"
+        anchors.fill: parent
+    }
+
     Column {
            anchors.centerIn: parent
            width: parent.width
