@@ -47,7 +47,8 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-zatraty.de.ts \
                 translations/harbour-zatraty.it.ts \
                 translations/harbour-zatraty.sv.ts \
-                translations/harbour-zatraty.ru.ts
+                translations/harbour-zatraty.ru.ts \
+                translations/harbour-zatraty.fr.ts
 
 RESOURCES += \
     images.qrc
