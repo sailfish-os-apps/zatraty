@@ -39,7 +39,7 @@ void ExpenseModel::refresh()
     }
 }
 
-bool ExpenseModel::add(const QString& categoryName, qreal amount, const QString& desc)
+bool ExpenseModel::add(const QString& categoryName, qreal amount, const QString& desc, const QDate& thisDate)
 {
     ExpensePtr expense(new Expense(this));
     CategoryPtr category = CategoryModel::instance().find(categoryName);
@@ -49,7 +49,7 @@ bool ExpenseModel::add(const QString& categoryName, qreal amount, const QString&
         return false;
     }
 
-    QDate date(QDate::currentDate());
+    QDate date = thisDate.isValid() ? thisDate : QDate::currentDate();
 
     expense->setCategory(category);
     expense->setAmount(amount);

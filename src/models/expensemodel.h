@@ -14,7 +14,7 @@ public:
     explicit ExpenseModel(QObject *parent = 0);
     static ExpenseModel& instance();
 
-    Q_INVOKABLE bool add(const QString&, qreal, const QString&);
+    Q_INVOKABLE bool add(const QString&, qreal, const QString&, const QDate& = QDate());
     Q_INVOKABLE bool remove(qlonglong);
     Q_INVOKABLE bool remove(Expense*);
 

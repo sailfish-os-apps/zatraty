@@ -46,7 +46,7 @@ CoverBackground {
                 if(!appWindow.quickAddOpen) {
                     var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"));
                     dialog.accepted.connect(function() {
-                        ExpenseModel.add(dialog.category, dialog.amount, dialog.desc)
+                        ExpenseModel.add(dialog.category, dialog.amount, dialog.desc, dialog.date)
                     })
                 }
                 appWindow.activate();

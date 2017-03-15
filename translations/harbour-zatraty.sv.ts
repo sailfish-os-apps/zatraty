@@ -361,6 +361,10 @@
         <source>New entry</source>
         <translation>Ny post</translation>
     </message>
+    <message>
+        <source>Today</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ResetDatabaseDialog</name>

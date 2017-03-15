@@ -68,11 +68,17 @@ void ExpenseListModel::refresh()
             m_categoryFilter->id() != expense->category()->id())
                 continue;
 
-        if (m_reverse)
-            m_expenses.insert(0, expense);
-        else
-            m_expenses.append(expense);
+        m_expenses.append(expense);
     }
+
+    qSort(m_expenses.begin(), m_expenses.end(),
+          [&](ExpensePtr expense1, ExpensePtr expense2) -> bool
+    {
+        if (m_reverse)
+            return expense1->date() > expense2->date();
+
+        return expense1->date() < expense2->date();
+    });
     emit layoutChanged();
 }
 

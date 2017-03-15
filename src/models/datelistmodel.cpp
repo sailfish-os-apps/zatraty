@@ -70,13 +70,17 @@ void DateListModel::refresh()
             date.setDate(date.year(), date.month(), 1);
 
         if (!m_dates.contains(date))
-        {
-            if (m_reverse)
-                m_dates.insert(0, date);
-            else
-                m_dates.append(date);
-        }
+            m_dates.append(date);
     }
+
+    qSort(m_dates.begin(), m_dates.end(),
+          [&](const QDate& date1, const QDate& date2) -> bool
+    {
+        if (m_reverse)
+            return date1 > date2;
+
+        return date1 < date2;
+    });
 }
 
 QHash<int, QByteArray> DateListModel::roleNames() const

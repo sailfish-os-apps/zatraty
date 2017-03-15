@@ -64,7 +64,7 @@ Page {
                     var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"),
                                                     { "category": category.name })
                     dialog.accepted.connect(function() {
-                        expenseListModel.add(dialog.category, dialog.amount, dialog.desc)
+                        expenseListModel.add(dialog.category, dialog.amount, dialog.desc, dialog.date)
                     })
                 }
             }

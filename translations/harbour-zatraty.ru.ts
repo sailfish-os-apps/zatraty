@@ -361,6 +361,10 @@
         <source>New entry</source>
         <translation>Новый элемент затрат</translation>
     </message>
+    <message>
+        <source>Today</source>
+        <translation>Сегодня</translation>
+    </message>
 </context>
 <context>
     <name>ResetDatabaseDialog</name>

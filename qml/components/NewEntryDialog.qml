@@ -1,11 +1,13 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.zatraty 1.0
+import "../JS/functions.js" as Helpers
 
 Dialog {
     id: dialog
     canAccept: false
     property string category
+    property date date
     property real amount
     property string desc
 
@@ -29,7 +31,7 @@ Dialog {
         width: parent.width
         anchors {
             top: header.bottom
-            topMargin: Theme.paddingLarge
+            topMargin: Theme.paddingSmall
         }
         placeholderText: qsTr("Amount", "placeholder for amount")
         inputMethodHints: Qt.ImhFormattedNumbersOnly
@@ -43,19 +45,65 @@ Dialog {
         width: parent.width
         anchors {
             top: amountField.bottom
-            topMargin: Theme.paddingLarge
+            topMargin: Theme.paddingSmall
         }
         placeholderText: qsTr("Desc", "placeholder for description")
     }
 
     Button {
-        id: categoryChooseButton
-        text: CategoryModel.mostUsed().name
-        width: parent.width - Theme.paddingLarge
+        id: dateButton
+        text: qsTr("Today")
+        width: Theme.buttonWidthSmall
         anchors {
             top: descField.bottom
-            topMargin: Theme.paddingLarge
-            horizontalCenter: parent.horizontalCenter
+            left: parent.left
+            leftMargin: Theme.paddingLarge
+        }
+        property date today: Helpers.resetTime(new Date())
+
+        onClicked: {
+            var dateDialog = pageStack.push(datePicker, {
+                date: today
+            })
+            dateDialog.accepted.connect(function() {
+                var newdate = Helpers.resetTime(dateDialog.date)
+                if (newdate.getTime() <= today.getTime()) {
+                    if (newdate.getTime() === today.getTime())
+                        dateButton.text = qsTr("Today")
+                    else
+                        dateButton.text = dateDialog.dateText
+                    dialog.date = newdate
+                }
+            })
+        }
+
+        Component {
+            id: datePicker
+            DatePickerDialog {}
+        }
+    }
+
+    Button {
+        id: categoryChooseButton
+        width: Theme.buttonWidthSmall
+        anchors {
+            top: descField.bottom
+            right: parent.right
+            rightMargin: Theme.paddingLarge
+        }
+
+        Label {
+            id: categoryLabel
+            text: CategoryModel.mostUsed().name
+            anchors {
+                fill: parent
+                leftMargin: Theme.paddingMedium
+                rightMargin: Theme.paddingMedium
+            }
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            truncationMode: TruncationMode.Elide
+            elide: Text.ElideRight
         }
 
         onClicked: categoriesDrawer.open = !categoriesDrawer.open
@@ -66,9 +114,9 @@ Dialog {
         open: false
         width: parent.width
         height: dialog.height + 4 * Theme.paddingLarge -
-             ( categoryChooseButton.height + amountField.height + descField.height)
+             ( dateButton.height + amountField.height + descField.height )
         anchors {
-            top: categoryChooseButton.bottom
+            top: dateButton.bottom
             topMargin: Theme.paddingLarge
         }
 
@@ -89,7 +137,7 @@ Dialog {
                     color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
                 }
                 onClicked: {
-                    categoryChooseButton.text = name
+                    categoryLabel.text = name
                     categoriesDrawer.open = false
                 }
             }
@@ -97,7 +145,7 @@ Dialog {
     }
 
     onAccepted: {
-        category = categoryChooseButton.text
+        category = categoryLabel.text
         amount = parseFloat(amountField.text)
         desc = descField.text
     }
