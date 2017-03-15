@@ -1,3 +1,10 @@
+* Wed Mar 15 2017 Albert Shteiner <ckazzku@gmail.com> 0.6.5-1
+- Fix month name format on history and month summary pages
+- Add cover background and about page logo
+- Add category renaming
+- Add change date for new expenses
+- Add french language file
+
 * Fri Mar 10 2017 Albert Shteiner <ckazzku@gmail.com> 0.6-1
 - Fix creating db on first run
 - Fix swedish translations
