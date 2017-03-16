@@ -135,6 +135,9 @@ Dialog {
                     text: name
                     anchors.verticalCenter: parent.verticalCenter
                     color: delegate.highlighted ? Theme.highlightColor : Theme.primaryColor
+                    width: parent.width - 2 * Theme.paddingLarge
+                    truncationMode: TruncationMode.Elide
+                    elide: Text.ElideRight
                 }
                 onClicked: {
                     categoryLabel.text = name

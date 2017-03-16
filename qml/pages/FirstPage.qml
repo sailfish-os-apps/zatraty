@@ -125,6 +125,9 @@ Page {
                 top: totalLabel.bottom
                 topMargin: Theme.paddingLarge
             }
+            width: parent.width - 2 * Theme.paddingLarge
+            truncationMode: TruncationMode.Elide
+            elide: Text.ElideRight
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeMedium
             text: qsTr("Most used category: %1").arg(mostUsedCategory)

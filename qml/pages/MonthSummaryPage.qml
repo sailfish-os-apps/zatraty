@@ -47,13 +47,16 @@ Page {
             }
 
             Label {
-                x: Theme.paddingLarge*2
                 id: amountRow
                 text: qsTr("%1 %2 in %3", "1 is amount, 2 is currency and 3 is the category")
                                                            .arg(amount)
                                                            .arg(Settings.currency)
                                                            .arg(category)
+                anchors.horizontalCenter: parent.horizontalCenter
+                width: parent.width - 2 * Theme.paddingLarge
                 color: Theme.highlightColor
+                truncationMode: TruncationMode.Elide
+                elide: Text.ElideRight
             }
 
             Label {
