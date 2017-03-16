@@ -16,7 +16,6 @@ Page {
             reverse: true
         }
         anchors.fill: parent
-
         header: PageHeader {
             title: LocaleExt.formatDate(period, "MMMM yyyy")
         }
@@ -32,6 +31,7 @@ Page {
 
         delegate: ListItem {
             id: delegate
+            width: parent.width
             menu: ContextMenu {
                 MenuItem {
                     text: qsTr("Delete")
@@ -47,7 +47,7 @@ Page {
             }
 
             Label {
-                id: amountRow
+                id: amountLabel
                 text: qsTr("%1 %2 in %3", "1 is amount, 2 is currency and 3 is the category")
                                                            .arg(amount)
                                                            .arg(Settings.currency)
@@ -61,14 +61,17 @@ Page {
 
             Label {
                 id: descLabel
-                visible: (description !== undefined)
-                text: description
+                text: (description !== undefined) ? description : ""
                 color: Theme.primaryColor
-                x: Theme.paddingLarge*2
+                x: Theme.paddingLarge * 2
+                font.pixelSize: Theme.fontSizeTiny
                 anchors {
-                    top: amountRow.bottom
-                    topMargin: Theme.paddingSmall
+                    top: amountLabel.bottom
+                    bottomMargin: Theme.paddingMedium
                 }
+                width: parent.width - x - Theme.paddingLarge
+                truncationMode: TruncationMode.Elide
+                elide: Text.ElideRight
             }
         }
 

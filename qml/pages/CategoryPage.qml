@@ -191,11 +191,15 @@ Page {
                     text: description
                     visible: (description !== undefined)
                     color: Theme.highlightColor
-                    x: Theme.paddingLarge*2
+                    font.pixelSize: Theme.fontSizeTiny
+                    x: Theme.paddingLarge * 2
+                    width: parent.width - x - Theme.paddingLarge
                     anchors {
                         top: dateAmountRow.bottom
                         topMargin: Theme.paddingSmall
                     }
+                    truncationMode: TruncationMode.Elide
+                    elide: Text.ElideRight
                 }
             }
             VerticalScrollDecorator {}
