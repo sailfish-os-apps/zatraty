@@ -1,3 +1,11 @@
+* Thu Mar 16 2017 Albert Shteiner <ckazzku@gmail.com> 0.7-1
+- Fix 'nan %' value for new category on CategoryPage
+- Fix labels for categories with long names
+- Fix updating of total month amount on CoverPage
+- First page refactoring
+- Fix view of large description text
+- Translations update
+
 * Wed Mar 15 2017 Albert Shteiner <ckazzku@gmail.com> 0.6.5-1
 - Fix month name format on history and month summary pages
 - Add cover background and about page logo
