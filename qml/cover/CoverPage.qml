@@ -3,6 +3,14 @@ import Sailfish.Silica 1.0
 import harbour.zatraty 1.0
 
 CoverBackground {
+    id: cover
+    property real totalMonthAmount: 0
+
+    onStatusChanged: {
+        if (cover.status === PageStatus.Activating) {
+            cover.totalMonthAmount = ExpenseModel.totalMonthAmount()
+        }
+    }
 
     Image {
         source: "qrc:///images/cover.png"
@@ -32,7 +40,7 @@ CoverBackground {
                color: Theme.highlightColor
                font.pixelSize: Theme.fontSizeLarge
                text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                        .arg(Math.round(ExpenseModel.totalMonthAmount()))
+                        .arg(Math.round(cover.totalMonthAmount))
                         .arg(Settings.currency)
            }
     }
