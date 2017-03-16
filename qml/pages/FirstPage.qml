@@ -29,7 +29,7 @@ Page {
 
     SilicaFlickable {
         anchors.fill: parent
-        contentHeight: column.height
+        contentHeight: page.height
 
         PullDownMenu {
             MenuItem {
@@ -59,46 +59,49 @@ Page {
             }
         }
 
-        Column {
-            id: column
-            width: page.width
-            spacing: Theme.paddingSmall
+        PageHeader {
+            id: header
+            title: Settings.appName
+        }
 
-            PageHeader {
-                title: Settings.appName
+        Label {
+            id: moneyLabel
+            anchors {
+                top: header.bottom
+                topMargin: Theme.paddingLarge
+                horizontalCenter: parent.horizontalCenter
             }
+            width: parent.width
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+            color: Theme.secondaryHighlightColor
+            font.pixelSize: Theme.fontSizeExtraLarge * 3
+            fontSizeMode: Text.HorizontalFit
+            text: "%1 %2".arg(Math.round(totalThisMonth))
+                         .arg(Settings.currency)
+        }
 
-            Label {
-                id: moneyLabel
-                anchors.horizontalCenter: parent.horizontalCenter
-                width: parent.width
-                height: contentHeight
-                horizontalAlignment: Text.AlignHCenter
-                verticalAlignment: Text.AlignVCenter
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeExtraLarge * 3
-                fontSizeMode: Text.HorizontalFit
-                text: "%1 %2".arg(Math.round(totalThisMonth))
-                             .arg(Settings.currency)
+        Label {
+            anchors {
+                top: moneyLabel.bottom
+                topMargin: Theme.paddingSmall
+                horizontalCenter: parent.horizontalCenter
             }
-
-            Label {
-                anchors { horizontalCenter: parent.horizontalCenter }
-                text: qsTr("spent this month", "subtitle of the amount spent in the MainView")
-                color: Theme.secondaryHighlightColor
-                font.pixelSize: Theme.fontSizeLarge
-            }
+            text: qsTr("spent this month", "subtitle of the amount spent in the MainView")
+            color: Theme.secondaryHighlightColor
+            font.pixelSize: Theme.fontSizeLarge
         }
 
         Label {
             id: lastMonthLabel
             anchors {
                 horizontalCenter: parent.horizontalCenter
-                top: column.bottom
-                topMargin: Theme.paddingLarge*15
+                bottom: totalLabel.top
+                bottomMargin: Theme.paddingLarge
             }
+            width: parent.width - 2 * Theme.paddingLarge
             color: Theme.secondaryHighlightColor
-            font.pixelSize: Theme.fontSizeMedium
+            font.pixelSize: Theme.fontSizeSmall
             text: qsTr("Last month: %1 %2", "1 is amount and 2 is currency")
                                             .arg(Math.round(totalLastMonth))
                                             .arg(Settings.currency)
@@ -108,11 +111,12 @@ Page {
             id: totalLabel
             anchors {
                 horizontalCenter: parent.horizontalCenter
-                top: lastMonthLabel.bottom
-                topMargin: Theme.paddingLarge
+                bottom: mostUsedCategoryLabel.top
+                bottomMargin: Theme.paddingLarge
             }
+            width: parent.width - 2 * Theme.paddingLarge
             color: Theme.secondaryHighlightColor
-            font.pixelSize: Theme.fontSizeMedium
+            font.pixelSize: Theme.fontSizeSmall
             text: qsTr("Total: %1 %2", "1 is amount and 2 is currency")
                                                 .arg(Math.round(total))
                                                 .arg(Settings.currency)
@@ -122,14 +126,14 @@ Page {
             id: mostUsedCategoryLabel
             anchors {
                 horizontalCenter: parent.horizontalCenter
-                top: totalLabel.bottom
-                topMargin: Theme.paddingLarge
+                bottom: parent.bottom
+                bottomMargin: Theme.paddingLarge * 2
             }
             width: parent.width - 2 * Theme.paddingLarge
             truncationMode: TruncationMode.Elide
             elide: Text.ElideRight
             color: Theme.secondaryHighlightColor
-            font.pixelSize: Theme.fontSizeMedium
+            font.pixelSize: Theme.fontSizeSmall
             text: qsTr("Most used category: %1").arg(mostUsedCategory)
         }
     }
