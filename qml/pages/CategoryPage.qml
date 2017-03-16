@@ -33,7 +33,7 @@ Page {
         running: false
         property real portion: 2
         property int precision: 100
-        property real target: Math.round((100.0 * current) / total * precision) / precision
+        property real target: total > 0 ? Math.round((100.0 * current) / total * precision) / precision : 0
         property bool reverse: percentIndicator.value > target
         onTriggered: {
             if (Math.abs(percentIndicator.value - target) > portion) {
@@ -115,7 +115,7 @@ Page {
             minimumValue: 0
             maximumValue: 100
             value: 0
-            valueText: qsTr("%1 %").arg(value)
+            valueText: "%1 %".arg(value)
             label: qsTr("of the total", "subtitle of the percentagebar")
         }
 

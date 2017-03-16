@@ -69,10 +69,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>%1 %</source>
-        <translation>%1 %</translation>
-    </message>
-    <message>
         <source>of the total</source>
         <comment>subtitle of the percentagebar</comment>
         <translation>du total</translation>

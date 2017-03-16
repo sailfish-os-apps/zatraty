@@ -73,10 +73,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>%1 %</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>of the total</source>
         <comment>subtitle of the percentagebar</comment>
         <translation type="unfinished"></translation>
