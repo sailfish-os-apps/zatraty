@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.zatraty 1.0
+import "../jbQuick/Charts"
 
 Page {
     id: page
@@ -14,16 +15,24 @@ Page {
         total = ExpenseModel.totalAmount()
         var date = new Date()
         totalThisMonth = ExpenseModel.totalMonthAmount(date)
+        var thisMonthValues = ExpenseModel.monthValues(date)
         date.setMonth(date.getMonth() - 1)
         totalLastMonth = ExpenseModel.totalMonthAmount(date)
 
         var category = CategoryModel.mostUsed()
         if (category)
             mostUsedCategory = category.name
+
+        chart.chart = null
+        chart.chartData.labels = []
+        for (var i = 1; i <= thisMonthValues.length; ++i)
+            chart.chartData.labels.push(i)
+        chart.chartData.datasets[0].data = thisMonthValues
+        chart.requestPaint()
     }
 
-    onStatusChanged: {
-        if (page.status === PageStatus.Activating)
+    onVisibleChanged: {
+        if (page.visible)
             refresh()
     }
 
@@ -82,6 +91,7 @@ Page {
         }
 
         Label {
+            id: moneyLabelSubtitle
             anchors {
                 top: moneyLabel.bottom
                 topMargin: Theme.paddingSmall
@@ -90,6 +100,42 @@ Page {
             text: qsTr("spent this month", "subtitle of the amount spent in the MainView")
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeLarge
+        }
+
+        Chart {
+            id: chart
+            width: parent.width - 2 * Theme.paddingLarge
+            height: Theme.itemSizeExtraLarge * 2
+            anchors {
+                top: moneyLabelSubtitle.bottom
+                topMargin: Theme.paddingLarge
+                horizontalCenter: parent.horizontalCenter
+            }
+            chartAnimated: true
+            chartAnimationEasing: Easing.InOutElastic
+            chartAnimationDuration: 1000
+            chartType: Charts.ChartType.BAR
+            chartData: {}
+            chartOptions: {}
+
+            Component.onCompleted: {
+                chart.chartData = {
+                    labels: [],
+                    datasets: [{
+                            data: [],
+                            borderColor: Theme.highlightColor,
+                            backgroundColor: Theme.highlightBackgroundColor
+                        }]
+                }
+
+                chart.chartOptions = {
+                    scaleFontFamily: Theme.fontFamily,
+                    scaleFontStyle: "normal",
+                    scaleFontSize: Theme.fontSizeTiny * 0.5,
+                    scaleFontColor: Theme.highlightColor,
+                    barValueSpacing: 2
+                }
+            }
         }
 
         Label {

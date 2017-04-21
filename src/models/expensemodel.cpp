@@ -143,6 +143,31 @@ qreal ExpenseModel::totalMonthAmount(QDate thisDate, Category *category)
     return total;
 }
 
+QList<qreal> ExpenseModel::monthValues(QDate thisDate, Category *category)
+{
+    QList<qreal> result;
+    if (!thisDate.isValid())
+        thisDate = QDate::currentDate();
+
+    for (int i = 0; i < thisDate.daysInMonth(); ++i)
+        result.append(0.0);
+
+    for (const auto& expense : m_expenses)
+    {
+        if (category && category->id() != expense->category()->id())
+            continue;
+
+        const QDate& date = expense->date();
+        if (date.year() == thisDate.year() &&
+            date.month() == thisDate.month())
+        {
+            result[date.day() - 1] += expense->amount();
+        }
+    }
+
+    return result;
+}
+
 int ExpenseModel::count() const
 {
     return m_expenses.count();

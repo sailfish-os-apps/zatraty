@@ -36,6 +36,8 @@ OTHER_FILES += qml/harbour-zatraty.qml \
     qml/components/*.qml \
     qml/pages/*.qml \
     qml/helpers/*.qml \
+    qml/jbQuick/Charts/*.js \
+    qml/jbQuick/Charts/*.qml \
     rpm/*.changes \
     rpm/*.yaml \
     translations/harbour-zatraty*.ts \

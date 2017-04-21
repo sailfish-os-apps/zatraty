@@ -89,9 +89,14 @@ int main(int argc, char *argv[])
 
     qmlRegisterTypes();
 
+//    qputenv("QML_IMPORT_TRACE", "1");
+
     QQuickView* viewer = SailfishApp::createView();
-    viewer->rootContext()->setContextProperty("CategoryModel", &CategoryModel::instance());
-    viewer->rootContext()->setContextProperty("ExpenseModel", &ExpenseModel::instance());
+    if (QQmlContext* context = viewer->rootContext())
+    {
+        context->setContextProperty("CategoryModel", &CategoryModel::instance());
+        context->setContextProperty("ExpenseModel", &ExpenseModel::instance());
+    }
 
     viewer->setSource(SailfishApp::pathTo("qml/harbour-zatraty.qml"));
     viewer->show();

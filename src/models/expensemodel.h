@@ -21,6 +21,7 @@ public:
     Q_INVOKABLE qreal totalAmount(Category* = nullptr);
     Q_INVOKABLE qreal totalDateAmount(QDate = QDate(), Category* = nullptr);
     Q_INVOKABLE qreal totalMonthAmount(QDate = QDate(), Category* = nullptr);
+    Q_INVOKABLE QList<qreal> monthValues(QDate = QDate(), Category* = nullptr);
 
     int count() const;
     ExpensePtr at(int) const;
