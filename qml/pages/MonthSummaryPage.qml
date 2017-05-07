@@ -24,7 +24,7 @@ Page {
             property: 'date'
 
             delegate: SectionHeader {
-                text: section
+                text: Qt.formatDate(section, "d MMMM")
                 height: Theme.itemSizeExtraSmall
             }
         }
