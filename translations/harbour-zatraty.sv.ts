@@ -73,16 +73,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>of the total</source>
-        <comment>subtitle of the percentagebar</comment>
-        <translation>av totalt</translation>
-    </message>
-    <message>
-        <source>%1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
-        <translation>%1 %2</translation>
-    </message>
-    <message>
         <source>Add Entry</source>
         <translation>Lägg till post</translation>
     </message>
@@ -109,6 +99,14 @@
     <message>
         <source>Expenses:</source>
         <translation>Utgifter:</translation>
+    </message>
+    <message>
+        <source>of the category total</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>of the total</source>
+        <translation type="unfinished">av totalt</translation>
     </message>
 </context>
 <context>

@@ -89,10 +89,8 @@ Page {
                 verticalAlignment: Text.AlignVCenter
                 font.pixelSize: Theme.fontSizeExtraLarge * 3
                 fontSizeMode: Text.HorizontalFit
-                text: qsTr("%1 %2",
-                           "1 is amount and 2 is currency")
-                                                        .arg(Math.round(current))
-                                                        .arg(Settings.currency)
+                text: "%1 %2".arg(Math.round(current))
+                             .arg(Settings.currency)
             }
 
             Label {
@@ -116,7 +114,8 @@ Page {
             maximumValue: 100
             value: 0
             valueText: "%1 %".arg(value)
-            label: qsTr("of the total", "subtitle of the percentagebar")
+            label: forCurrentMonth ? qsTr("of the category total") :
+                                     qsTr("of the total")
         }
 
         Label {
@@ -179,9 +178,8 @@ Page {
 
                     Label {
                         id: amountLabel
-                        text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                                                            .arg(amount)
-                                                            .arg(Settings.currency)
+                        text: "%1 %2".arg(amount)
+                                     .arg(Settings.currency)
                         color: Theme.primaryColor
                     }
                 }

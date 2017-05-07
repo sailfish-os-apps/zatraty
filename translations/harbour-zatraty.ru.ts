@@ -73,16 +73,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>of the total</source>
-        <comment>subtitle of the percentagebar</comment>
-        <translation>от всех затрат</translation>
-    </message>
-    <message>
-        <source>%1 %2</source>
-        <comment>1 is amount and 2 is currency</comment>
-        <translation>%1 %2</translation>
-    </message>
-    <message>
         <source>Add Entry</source>
         <translation>Добавить затраты</translation>
     </message>
@@ -109,6 +99,14 @@
     <message>
         <source>Expenses:</source>
         <translation>Затраты:</translation>
+    </message>
+    <message>
+        <source>of the category total</source>
+        <translation>от всех затрат по категории</translation>
+    </message>
+    <message>
+        <source>of the total</source>
+        <translation>от всех затрат</translation>
     </message>
 </context>
 <context>
