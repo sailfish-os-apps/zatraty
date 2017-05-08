@@ -102,7 +102,7 @@
     </message>
     <message>
         <source>of the category total</source>
-        <translation type="unfinished"></translation>
+        <translation>av totalt i kategorin</translation>
     </message>
     <message>
         <source>of the total</source>
