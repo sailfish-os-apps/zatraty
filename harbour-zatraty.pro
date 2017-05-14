@@ -54,3 +54,10 @@ TRANSLATIONS += translations/harbour-zatraty.de.ts \
 
 RESOURCES += \
     images.qrc
+
+SAILFISHAPP_ICONS += 86x86 108x108 128x128 256x256
+
+DISTFILES += icons/86x86/harbour-zatraty.png \
+             icons/108x108/harbour-zatraty.png \
+             icons/128x128/harbour-zatraty.png \
+             icons/256x256/harbour-zatraty.png
