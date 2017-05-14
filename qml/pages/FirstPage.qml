@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.zatraty 1.0
-import "../jbQuick/Charts"
+import "../charts"
 
 Page {
     id: page
