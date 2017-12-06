@@ -71,14 +71,23 @@ void ExpenseListModel::refresh()
         m_expenses.append(expense);
     }
 
-    qSort(m_expenses.begin(), m_expenses.end(),
-          [&](ExpensePtr expense1, ExpensePtr expense2) -> bool
+    std::sort(m_expenses.begin(), m_expenses.end(),
+          [&](const ExpensePtr& expense1, const ExpensePtr& expense2) -> bool
     {
-        if (m_reverse)
-            return expense1->date() > expense2->date();
+        bool dateIsEq = expense1->date() == expense2->date();
 
+        if (m_reverse)
+        {
+            if (dateIsEq)
+                return expense1->id() > expense2->id();
+            return expense1->date() > expense2->date();
+        }
+
+        if (dateIsEq)
+            return expense1->id() < expense2->id();
         return expense1->date() < expense2->date();
     });
+
     emit layoutChanged();
 }
 
@@ -88,9 +97,11 @@ bool ExpenseListModel::add(const QString& categoryName, qreal amount, const QStr
     int row = m_reverse ? 0 : ExpenseModel::instance().count();
     beginInsertRows(QModelIndex(), row, row);
     inserted = ExpenseModel::instance().add(categoryName, amount, descr);
+    endInsertRows();
+
     if (inserted)
         refresh();
-    endInsertRows();
+
     return inserted;
 }
 
@@ -101,8 +112,6 @@ bool ExpenseListModel::remove(int index)
     {
         beginRemoveRows(QModelIndex(), index, index);
         removed = ExpenseModel::instance().remove(expense);
-        if (removed)
-            refresh();
         endRemoveRows();
     }
     return removed;
