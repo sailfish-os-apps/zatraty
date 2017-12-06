@@ -49,7 +49,7 @@ Page {
                     bottomMargin: Theme.paddingSmall
                 }
                 text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                                                        .arg(value)
+                                                        .arg(Math.round(value * 100) / 100)
                                                         .arg(Settings.currency)
             }
 

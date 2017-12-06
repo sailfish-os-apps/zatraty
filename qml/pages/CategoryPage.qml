@@ -89,7 +89,7 @@ Page {
                 verticalAlignment: Text.AlignVCenter
                 font.pixelSize: Theme.fontSizeExtraLarge * 3
                 fontSizeMode: Text.HorizontalFit
-                text: "%1 %2".arg(Math.round(current))
+                text: "%1 %2".arg(Math.round(current * 100) / 100)
                              .arg(Settings.currency)
             }
 

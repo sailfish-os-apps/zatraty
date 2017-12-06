@@ -86,7 +86,7 @@ Page {
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeExtraLarge * 3
             fontSizeMode: Text.HorizontalFit
-            text: "%1 %2".arg(Math.round(totalThisMonth))
+            text: "%1 %2".arg(Math.round(totalThisMonth * 100) / 100)
                          .arg(Settings.currency)
         }
 
@@ -149,7 +149,7 @@ Page {
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeSmall
             text: qsTr("Last month: %1 %2", "1 is amount and 2 is currency")
-                                            .arg(Math.round(totalLastMonth))
+                                            .arg(Math.round(totalLastMonth * 100) / 100)
                                             .arg(Settings.currency)
         }
 
@@ -164,7 +164,7 @@ Page {
             color: Theme.secondaryHighlightColor
             font.pixelSize: Theme.fontSizeSmall
             text: qsTr("Total: %1 %2", "1 is amount and 2 is currency")
-                                                .arg(Math.round(total))
+                                                .arg(Math.round(total * 100) / 100)
                                                 .arg(Settings.currency)
         }
 

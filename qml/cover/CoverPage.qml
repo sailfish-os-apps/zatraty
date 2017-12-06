@@ -40,7 +40,7 @@ CoverBackground {
                color: Theme.highlightColor
                font.pixelSize: Theme.fontSizeLarge
                text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                        .arg(Math.round(cover.totalMonthAmount))
+                        .arg(Math.round(cover.totalMonthAmount * 100) / 100)
                         .arg(Settings.currency)
            }
     }
