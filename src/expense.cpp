@@ -83,7 +83,7 @@ void Expense::setDate(const QDate& date)
 
 void Expense::setAmount(qreal amount)
 {
-    if (fabs(amount - m_amount) >= 0.01)
+    if (fabs(amount - m_amount) > 0.001)
         m_amount = amount;
 }
 
