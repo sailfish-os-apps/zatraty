@@ -114,6 +114,10 @@ bool ExpenseListModel::remove(int index)
         removed = ExpenseModel::instance().remove(expense);
         endRemoveRows();
     }
+
+    if (removed)
+        refresh();
+
     return removed;
 }
 
