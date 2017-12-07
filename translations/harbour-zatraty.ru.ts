@@ -228,13 +228,13 @@
         <translation>потрачено в этом месяце</translation>
     </message>
     <message>
-        <source>Quick add</source>
-        <translation>Добавить затраты</translation>
-    </message>
-    <message>
         <source>Last month: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>Прошлый месяц: %1 %2</translation>
+    </message>
+    <message>
+        <source>Add entry</source>
+        <translation>Добавить затраты</translation>
     </message>
 </context>
 <context>

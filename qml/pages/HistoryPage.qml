@@ -5,7 +5,7 @@ import "../helpers"
 import "../components"
 
 Page {
-    id: hystoryPage
+    id: historyPage
 
     SilicaListView {
         id: listView

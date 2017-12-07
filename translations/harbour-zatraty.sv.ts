@@ -228,13 +228,13 @@
         <translation>Spenderat denna månad</translation>
     </message>
     <message>
-        <source>Quick add</source>
-        <translation>Ny utgiftspost</translation>
-    </message>
-    <message>
         <source>Last month: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
         <translation>Senaste månaden: %1 %2</translation>
+    </message>
+    <message>
+        <source>Add entry</source>
+        <translation>Ny utgiftspost</translation>
     </message>
 </context>
 <context>

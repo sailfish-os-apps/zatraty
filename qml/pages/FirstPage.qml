@@ -51,7 +51,7 @@ Page {
                 onClicked: pageStack.push(Qt.resolvedUrl("CategoriesPage.qml"))
             }
             MenuItem {
-                text: qsTr("Quick add")
+                text: qsTr("Add entry")
                 onClicked: {
                     var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"))
                     dialog.accepted.connect(function() {
