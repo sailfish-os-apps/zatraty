@@ -149,7 +149,7 @@ Dialog {
 
     onAccepted: {
         category = categoryLabel.text
-        amount = parseFloat(amountField.text)
+        amount = parseFloat(amountField.text.replace(',', '.'))
         desc = descField.text
     }
 
