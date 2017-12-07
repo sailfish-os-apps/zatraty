@@ -73,10 +73,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>Add Entry</source>
-        <translation>Aggiungi</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>

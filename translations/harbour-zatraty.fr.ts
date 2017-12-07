@@ -69,10 +69,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>Add Entry</source>
-        <translation>Ajouter une entrée</translation>
-    </message>
-    <message>
         <source>For all time</source>
         <translation type="unfinished"></translation>
     </message>

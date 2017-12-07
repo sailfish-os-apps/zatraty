@@ -73,10 +73,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>Add Entry</source>
-        <translation>Добавить затраты</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Удалить</translation>
     </message>

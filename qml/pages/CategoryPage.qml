@@ -57,17 +57,6 @@ Page {
                     refresh()
                 }
             }
-
-            MenuItem {
-                text: qsTr("Add Entry")
-                onClicked: {
-                    var dialog = pageStack.push(Qt.resolvedUrl("../components/NewEntryDialog.qml"),
-                                                    { "category": category.name })
-                    dialog.accepted.connect(function() {
-                        expenseListModel.add(dialog.category, dialog.amount, dialog.desc, dialog.date)
-                    })
-                }
-            }
         }
 
         Column {

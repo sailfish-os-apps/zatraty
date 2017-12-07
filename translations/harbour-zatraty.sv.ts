@@ -73,10 +73,6 @@
 <context>
     <name>CategoryPage</name>
     <message>
-        <source>Add Entry</source>
-        <translation>Lägg till post</translation>
-    </message>
-    <message>
         <source>Delete</source>
         <translation>Ta bort</translation>
     </message>
