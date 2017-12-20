@@ -6,6 +6,7 @@ ListItem {
     property real minimumValue
     property real maximumValue
     property real progressValue: value / Math.abs(maximumValue - minimumValue)
+    property bool withCenter
 
     Rectangle {
         id: leftRect
@@ -13,6 +14,16 @@ ListItem {
         width: parent.width * progressValue
         color: Theme.highlightBackgroundColor
         opacity: Theme.highlightBackgroundOpacity
+    }
+
+    Rectangle {
+        id: centerRect
+        anchors.horizontalCenter: parent.horizontalCenter
+        height: parent.height
+        width: 2
+        color: Theme.primaryColor
+        opacity: Theme.highlightBackgroundOpacity
+        visible: withCenter
     }
 
     Rectangle {

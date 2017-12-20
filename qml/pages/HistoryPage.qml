@@ -26,8 +26,9 @@ Page {
             height: Theme.itemSizeMedium
             width: parent.width - 2 * Theme.paddingMedium
             minimumValue: 0
-            maximumValue: ExpenseModel.totalAmount()
+            maximumValue: ExpenseModel.totalMonthAverageAmount() * 2
             value: ExpenseModel.totalMonthAmount(date)
+            withCenter: true
 
             Label {
                 id: dateLabel
@@ -37,7 +38,7 @@ Page {
                     top: parent.top
                     topMargin: Theme.paddingSmall
                 }
-                text: LocaleExt.formatDate(date, "MMMM yyyy")
+                text: LocaleExt.formatDate(date, "yyyy MMMM")
             }
 
             Label {
@@ -49,7 +50,7 @@ Page {
                     bottomMargin: Theme.paddingSmall
                 }
                 text: qsTr("%1 %2", "1 is amount and 2 is currency")
-                                                        .arg(Math.round(value * 100) / 100)
+                                                        .arg(value.toFixed(2))
                                                         .arg(Settings.currency)
             }
 

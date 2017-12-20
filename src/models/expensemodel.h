@@ -18,6 +18,7 @@ public:
     Q_INVOKABLE bool remove(qlonglong);
     Q_INVOKABLE bool remove(Expense*);
 
+    Q_INVOKABLE qreal totalMonthAverageAmount();
     Q_INVOKABLE qreal totalAmount(Category* = nullptr);
     Q_INVOKABLE qreal totalDateAmount(QDate = QDate(), Category* = nullptr);
     Q_INVOKABLE qreal totalMonthAmount(QDate = QDate(), Category* = nullptr);

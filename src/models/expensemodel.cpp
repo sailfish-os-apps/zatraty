@@ -1,4 +1,5 @@
 #include <QSqlQuery>
+#include <QSet>
 #include "expensemodel.h"
 #include "categorymodel.h"
 #include "database.h"
@@ -88,6 +89,20 @@ bool ExpenseModel::remove(Expense *expense)
         return false;
 
     return remove(expense->id());
+}
+
+qreal ExpenseModel::totalMonthAverageAmount()
+{
+    qreal total = 0.0;
+    QSet<QDate> dates;
+    for (const auto& expense : m_expenses)
+    {
+        const QDate& date = expense->date();
+        dates.insert(QDate(date.year(), date.month(), 1));
+
+        total += expense->amount();
+    }
+    return total / dates.size();
 }
 
 qreal ExpenseModel::totalAmount(Category *category)
