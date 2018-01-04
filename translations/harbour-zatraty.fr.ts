@@ -5,107 +5,107 @@
     <name>AboutPage</name>
     <message>
         <source>About %1</source>
-        <translation type="unfinished"></translation>
+        <translation>À propos</translation>
     </message>
     <message>
         <source>Version %1</source>
-        <translation type="unfinished">Versione %1</translation>
+        <translation>Versione %1</translation>
     </message>
     <message>
         <source>A simple app to manage your expenses.</source>
-        <translation type="unfinished"></translation>
+        <translation>Application simple pour gérer les dépenses.</translation>
     </message>
     <message>
         <source>Source code</source>
-        <translation type="unfinished"></translation>
+        <translation>Code source</translation>
     </message>
 </context>
 <context>
     <name>BackupsPage</name>
     <message>
         <source>Create backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Créer une sauvegarde</translation>
     </message>
     <message>
         <source>Data backups</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegardes des données</translation>
     </message>
     <message>
         <source>Apply</source>
-        <translation type="unfinished"></translation>
+        <translation>Appliquer</translation>
     </message>
     <message>
         <source>Applying backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Restauration de la sauvegarde</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer</translation>
     </message>
     <message>
         <source>Deleting backup</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer la sauvegarde</translation>
     </message>
 </context>
 <context>
     <name>CategoriesPage</name>
     <message>
         <source>Add category</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une entrée</translation>
     </message>
     <message>
         <source>Categories</source>
-        <translation type="unfinished">Catégorie</translation>
+        <translation>Catégorie</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"></translation>
+        <translation>Renommer</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer</translation>
     </message>
 </context>
 <context>
     <name>CategoryPage</name>
     <message>
         <source>For all time</source>
-        <translation type="unfinished"></translation>
+        <translation>Depuis toujours</translation>
     </message>
     <message>
         <source>For current month</source>
-        <translation type="unfinished"></translation>
+        <translation>Pour ce mois-ci</translation>
     </message>
     <message>
         <source>for this month</source>
-        <translation type="unfinished"></translation>
+        <translation>ce mois-ci</translation>
     </message>
     <message>
         <source>for all time</source>
-        <translation type="unfinished"></translation>
+        <translation>depuis toujours</translation>
     </message>
     <message>
         <source>Expenses:</source>
-        <translation type="unfinished"></translation>
+        <translation>Dépenses :</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer</translation>
     </message>
     <message>
         <source>of the category total</source>
-        <translation type="unfinished"></translation>
+        <translation>de la catégorie</translation>
     </message>
     <message>
         <source>of the total</source>
-        <translation type="unfinished">du total</translation>
+        <translation>du total</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>This month:</source>
-        <translation>Ce mois-ci : </translation>
+        <translation>Ce mois-ci :</translation>
     </message>
     <message>
         <source>%1 %2</source>
@@ -117,46 +117,46 @@
     <name>CurrenciesPage</name>
     <message>
         <source>Currencies</source>
-        <translation type="unfinished"></translation>
+        <translation>Devises</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer</translation>
     </message>
     <message>
         <source>Deleting currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Supression de la devise</translation>
     </message>
     <message>
         <source>Add currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une devise</translation>
     </message>
 </context>
 <context>
     <name>DataBase</name>
     <message>
         <source>Required sqlite driver not available!</source>
-        <translation type="unfinished"></translation>
+        <translation>Le pilote sqlite n’est pas disponible !</translation>
     </message>
     <message>
         <source>Food</source>
-        <translation type="unfinished"></translation>
+        <translation>Alimentation</translation>
     </message>
     <message>
         <source>Travels</source>
-        <translation type="unfinished"></translation>
+        <translation>Voyage</translation>
     </message>
     <message>
         <source>Cannot find local storage dir %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>Stockage local introuvable %1 !</translation>
     </message>
     <message>
         <source>There is no data base with name %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>Aucune donnée au nom de %1 !</translation>
     </message>
     <message>
         <source>Cannot open data base: %1!</source>
-        <translation type="unfinished"></translation>
+        <translation>Impossible d’ouvrir la base de donnée : %1 !</translation>
     </message>
 </context>
 <context>
@@ -168,15 +168,15 @@
     </message>
     <message>
         <source>Delete category</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer la catégorie</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer</translation>
     </message>
     <message>
         <source>All your data related with this category (%1) will be lost!</source>
-        <translation type="unfinished"></translation>
+        <translation>Toutes vos données liées à la catégorie « %1 » seront perdues !</translation>
     </message>
 </context>
 <context>
@@ -188,11 +188,11 @@
     </message>
     <message>
         <source>Delete item</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer l’élément</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer</translation>
     </message>
 </context>
 <context>
@@ -200,11 +200,11 @@
     <message>
         <source>Total: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
-        <translation>Total : %1 %2</translation>
+        <translation>Total : %1 %2</translation>
     </message>
     <message>
         <source>Most used category: %1</source>
-        <translation>Catégorie la plus utilisée : %1</translation>
+        <translation>Catégorie la plus utilisée : %1</translation>
     </message>
     <message>
         <source>History</source>
@@ -226,57 +226,57 @@
     <message>
         <source>Last month: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
-        <translation type="unfinished"></translation>
+        <translation>Le mois dernier : %1 %2</translation>
     </message>
     <message>
         <source>Add entry</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter une entrée</translation>
     </message>
 </context>
 <context>
     <name>HistoryPage</name>
     <message>
         <source>History</source>
-        <translation type="unfinished">Historique</translation>
+        <translation>Historique</translation>
     </message>
     <message>
         <source>%1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
-        <translation type="unfinished">%1 %2</translation>
+        <translation>%1 %2</translation>
     </message>
 </context>
 <context>
     <name>ImportDataDialog</name>
     <message>
         <source>Import data</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer des données</translation>
     </message>
     <message>
         <source>Import</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer</translation>
     </message>
     <message>
         <source>Will be imported data from the old Expense app</source>
-        <translation type="unfinished"></translation>
+        <translation>Les données de l’ancienne application Expense seront importées</translation>
     </message>
     <message>
         <source>Data already imported</source>
-        <translation type="unfinished"></translation>
+        <translation>Données déjà importées</translation>
     </message>
 </context>
 <context>
     <name>ImportDataPage</name>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation>Effectué</translation>
     </message>
     <message>
         <source>Import data</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer des données</translation>
     </message>
     <message>
         <source>Import in progress...</source>
-        <translation type="unfinished"></translation>
+        <translation>Importation...</translation>
     </message>
 </context>
 <context>
@@ -288,7 +288,7 @@
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Suprimer</translation>
     </message>
 </context>
 <context>
@@ -300,31 +300,31 @@
     </message>
     <message>
         <source>Category</source>
-        <translation type="unfinished"></translation>
+        <translation>Catégorie</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"></translation>
+        <translation>Actualiser</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter</translation>
     </message>
 </context>
 <context>
     <name>NewCurrencyDialog</name>
     <message>
         <source>New currancy</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle devise</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <source>Currency</source>
         <comment>placeholder for currency</comment>
-        <translation type="unfinished">Devise</translation>
+        <translation>Devise</translation>
     </message>
 </context>
 <context>
@@ -341,15 +341,15 @@
     </message>
     <message>
         <source>New entry</source>
-        <translation type="unfinished"></translation>
+        <translation>Nouvelle entrée</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajouter</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished">Aujourd’hui</translation>
+        <translation>Aujourd’hui</translation>
     </message>
 </context>
 <context>
@@ -361,33 +361,33 @@
     </message>
     <message>
         <source>Reset database</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser la base de données</translation>
     </message>
     <message>
         <source>Reset</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser</translation>
     </message>
     <message>
         <source>All your data will be irreversibly lost!</source>
-        <translation type="unfinished"></translation>
+        <translation>Vos données seront perdues à jamais !</translation>
     </message>
 </context>
 <context>
     <name>Settings</name>
     <message>
         <source>Incorrect index of currency</source>
-        <translation type="unfinished"></translation>
+        <translation>Indexde devise incorrecte</translation>
     </message>
     <message>
         <source>Currency &apos;%s&apos; already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>La devise &apos;%s&apos; existe déjà</translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
         <source>Currency: </source>
-        <translation>Devise : </translation>
+        <translation>Devise :</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -399,15 +399,15 @@
     </message>
     <message>
         <source>Reset database</source>
-        <translation type="unfinished"></translation>
+        <translation>Réinitialiser la base de données</translation>
     </message>
     <message>
         <source>Import data</source>
-        <translation type="unfinished"></translation>
+        <translation>Importer des données</translation>
     </message>
     <message>
         <source>Backups</source>
-        <translation type="unfinished"></translation>
+        <translation>Sauvegardes</translation>
     </message>
 </context>
 </TS>
