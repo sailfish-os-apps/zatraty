@@ -188,7 +188,7 @@
     </message>
     <message>
         <source>Delete item</source>
-        <translation>Item verwijderen</translation>
+        <translation>Uitgave verwijderen</translation>
     </message>
     <message>
         <source>Delete</source>
@@ -226,7 +226,7 @@
     <message>
         <source>Last month: %1 %2</source>
         <comment>1 is amount and 2 is currency</comment>
-        <translation>Voorbije maand: %2%1</translation>
+        <translation>Vorige maand: %2%1</translation>
     </message>
     <message>
         <source>Add entry</source>
@@ -341,7 +341,7 @@
     </message>
     <message>
         <source>New entry</source>
-        <translation>Nieuw item</translation>
+        <translation>Nieuwe uitgave</translation>
     </message>
     <message>
         <source>Add</source>
