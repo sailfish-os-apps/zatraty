@@ -361,7 +361,7 @@
     </message>
     <message>
         <source>Reset database</source>
-        <translation>Réinitialiser la base de données</translation>
+        <translation>Réinitialiser les données</translation>
     </message>
     <message>
         <source>Reset</source>
